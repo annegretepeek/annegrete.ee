@@ -1,0 +1,19 @@
+---
+layout: page
+title: Blogi
+permalink: /blog/
+---
+
+<div class="blog-layout">
+
+    <main class="blog-posts">
+
+        {% for post in site.posts %}
+            {% include post_summary.html post=post %}
+        {% endfor %}
+
+    </main>
+
+    {% include sidebar.html %}
+
+</div>
