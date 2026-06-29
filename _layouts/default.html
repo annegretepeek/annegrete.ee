@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="et">
+
+<head>
+
+    {% include head.html %}
+
+</head>
+
+<body>
+
+    {% include header.html %}
+
+    {{ content }}
+
+    <script>
+        window.addEventListener("scroll", function () {
+            document
+                .querySelector("header")
+                .classList.toggle("scrolled", window.scrollY > 50);
+        });
+    </script>
+
+</body>
+
+</html>
