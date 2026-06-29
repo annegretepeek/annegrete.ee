@@ -26,6 +26,7 @@ header {
   width: 100%;
   background: transparent;
   transition: background-color 0.3s ease;
+  margin: 120px auto;
 }
 
 header.scrolled {
@@ -73,7 +74,7 @@ header.scrolled {
 .hero {
   display: grid;
   min-height: 520px;
-  padding-bottom: 90px;
+  padding-bottom: 70px;
   color: #fff;
   text-align: center;
   background:
@@ -163,6 +164,124 @@ header.scrolled {
   text-decoration: none;
 }
 
+/* Page layout */
+.page-content {
+  max-width: 1100px;
+  margin: 120px auto 4rem;
+  padding: 0 1rem;
+}
+
+/* Blog layout */
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) 320px;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 120px auto 4rem;
+  padding: 0 1rem;
+}
+
+.blog-posts,
+.blog-post {
+  min-width: 0;
+}
+
+.post-summary {
+  margin-bottom: 4rem;
+}
+
+.post-title {
+  margin-bottom: 0.3rem;
+}
+
+.post-title a {
+  color: #656d6d;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #fcd088;
+}
+
+.post-date {
+  margin-top: 0;
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.post-excerpt {
+  font-weight: 300;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #656d6d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: #fcd088;
+}
+
+/* Sidebar */
+.blog-sidebar section {
+  margin-bottom: 2rem;
+}
+
+.blog-sidebar h3 {
+  margin-top: 0;
+}
+
+.blog-sidebar ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.blog-sidebar li {
+  margin-bottom: 0.8rem;
+}
+
+.blog-sidebar a {
+  color: #656d6d;
+  text-decoration: none;
+}
+
+.blog-sidebar a:hover {
+  color: #fcd088;
+}
+
+.latest-posts small {
+  color: #999;
+}
+
+/* Full post */
+.blog-post article {
+  max-width: 760px;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-content a {
+  color: #656d6d;
+  font-weight: 600;
+}
+
+.post-content a:hover {
+  color: #fcd088;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
   .navbar {
@@ -176,7 +295,13 @@ header.scrolled {
     justify-content: center;
   }
 
-  .services {
+  .services,
+  .blog-layout {
     grid-template-columns: 1fr;
+  }
+
+  .page-content,
+  .blog-layout {
+    margin-top: 150px;
   }
 }
