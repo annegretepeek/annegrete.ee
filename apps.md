@@ -1,8 +1,7 @@
 ::::::: row
 :::: column
 ::: content
-[![Company
-Compare](https://annegrete.ee/wp-content/uploads/2021/01/MISA-700x342.png){style="width: 100%;"}](https://annegrete.ee/shiny/MISA/){.applink}
+[![MISA](/assets/images/apps/MISA-700x342.png){style="width: 100%;"}](https://annegretepeek.shinyapps.io/MISA/){.applink}
 
 ### Ettevõtted: mina vs sarnased
 
@@ -13,7 +12,8 @@ EMTA avaldatud kvartaalsetel andmetel.
 
 :::: column
 ::: content
-[![Benchmarking](https://annegrete.ee/wp-content/uploads/2018/01/benchmarking_EMTA-1024x492.png){style="width: 100%;"}](https://annegrete.ee/shiny/benchmarking_EMTA/){.applink}
+[![Company
+Compare](/assets/images/apps/benchmarking_EMTA-1024x492.png){style="width: 100%;"}](https://annegretepeek.shinyapps.io/EMTA_compare/){.applink}
 
 ### Ettevõtete ajaloo võrdlus
 
@@ -26,20 +26,8 @@ andmetel.
 ::::::: row
 :::: column
 ::: content
-[![Company
-Compare](https://annegrete.ee/wp-content/uploads/2018/01/company_compare_EMTA-1024x492.png){style="width: 100%;"}](https://annegrete.ee/shiny/company_compare_EMTA/){.applink}
-
-### Ettevõtete viimase kvartali võrdlus
-
-Võrlde kuni kolme Eesti ettevõtte viimase kvartali näitajaid. Põhineb
-EMTA avaldatud kvartaalsetel andmetel.
-:::
-::::
-
-:::: column
-::: content
 [![Paikse
-kalkulaator](https://annegrete.ee/wp-content/uploads/2018/11/pilt.png){style="width: 100%;"}](https://annegrete.ee/shiny/paike/){.applink}
+kalkulaator](/assets/images/apps/paike.png){style="width: 100%;"}](https://annegretepeek.shinyapps.io/paike/){.applink}
 
 ### Päikse kalkulaator
 
