@@ -1,3 +1,9 @@
+---
+layout: page
+title: Kasulikud lingid
+permalink: /kasulikud-lingid/
+---
+
 ### Graafikute kogumikud
 
 Siin on mõned lingid, kus saab visualiseerimiseks inspiratsiooni ja

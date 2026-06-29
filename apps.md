@@ -1,3 +1,9 @@
+---
+layout: page
+title: Rakendused
+permalink: /rakendused/
+---
+
 ::::::: row
 :::: column
 ::: content

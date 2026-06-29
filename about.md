@@ -1,3 +1,9 @@
+---
+layout: page
+title: Minust
+permalink: /minust/
+---
+
 ![](/assets/images/about/me.jpg) 
 *Foto: Ave Aviste* 
 
