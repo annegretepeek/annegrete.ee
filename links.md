@@ -1,0 +1,48 @@
+### Graafikute kogumikud
+
+Siin on mõned lingid, kus saab visualiseerimiseks inspiratsiooni ja
+tutvuda uute võimalustega.
+
+- [Data Viz Project](http://datavizproject.com/){target="_blank"
+  rel="noopener"}
+- [The Data Visualisation
+  Catalogue](https://datavizcatalogue.com/){target="_blank"
+  rel="noopener"}
+- [The Visualization Universe:
+  Charts](http://visualizationuniverse.com/charts/){target="_blank"
+  rel="noopener"}
+- [Xenographics - Weird but (sometimes) useful
+  charts](https://xeno.graphics/){target="_blank" rel="noopener"}
+
+ 
+
+### *Online*-rakendused andmete visualiseerimiseks
+
+Alati ei ole aega d3.js, R või muu vahendiga jooniseid teha. Siin on
+mõned *online*-rakendused, mis aitavad nendes olukordades.
+
+- [Datawrapper](https://www.datawrapper.de/){target="_blank"
+  rel="noopener"}
+- [RAWGraphs](http://rawgraphs.io/){target="_blank" rel="noopener"}
+- [ChartAccent](https://chartaccent.github.io/){target="_blank"
+  rel="noopener"}
+- [Timeline
+  Storyteller](https://timelinestoryteller.com/){target="_blank"
+  rel="noopener"} (aegridade kujutamine)
+
+ 
+
+### Andmeallikad
+
+Lehed, kust analüüsiks ja visualiseerimiseks andmeid leida:
+
+- [Our World in Data](https://ourworldindata.org/){target="_blank"
+  rel="noopener"}
+- [Data Is
+  Plural](https://tinyletter.com/data-is-plural/archive){target="_blank"
+  rel="noopener"}
+- [Eesti
+  avaandmed](https://opendata.riik.ee/andmehulgad/){target="_blank"
+  rel="noopener"}
+- [Statistikaameti andmebaas](http://andmebaas.stat.ee/){target="_blank"
+  rel="noopener"}
