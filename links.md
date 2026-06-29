@@ -8,9 +8,6 @@ tutvuda uute võimalustega.
 - [The Data Visualisation
   Catalogue](https://datavizcatalogue.com/){target="_blank"
   rel="noopener"}
-- [The Visualization Universe:
-  Charts](http://visualizationuniverse.com/charts/){target="_blank"
-  rel="noopener"}
 - [Xenographics - Weird but (sometimes) useful
   charts](https://xeno.graphics/){target="_blank" rel="noopener"}
 
@@ -26,9 +23,6 @@ mõned *online*-rakendused, mis aitavad nendes olukordades.
 - [RAWGraphs](http://rawgraphs.io/){target="_blank" rel="noopener"}
 - [ChartAccent](https://chartaccent.github.io/){target="_blank"
   rel="noopener"}
-- [Timeline
-  Storyteller](https://timelinestoryteller.com/){target="_blank"
-  rel="noopener"} (aegridade kujutamine)
 
  
 
@@ -38,11 +32,8 @@ Lehed, kust analüüsiks ja visualiseerimiseks andmeid leida:
 
 - [Our World in Data](https://ourworldindata.org/){target="_blank"
   rel="noopener"}
-- [Data Is
-  Plural](https://tinyletter.com/data-is-plural/archive){target="_blank"
-  rel="noopener"}
 - [Eesti
-  avaandmed](https://opendata.riik.ee/andmehulgad/){target="_blank"
+  avaandmed](https://andmed.eesti.ee/){target="_blank"
   rel="noopener"}
-- [Statistikaameti andmebaas](http://andmebaas.stat.ee/){target="_blank"
+- [Statistikaameti andmebaas](https://andmed.stat.ee/et/stat){target="_blank"
   rel="noopener"}
