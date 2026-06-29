@@ -1,60 +1,54 @@
-<!doctype html>
-<html lang="et">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Annegrete Molloka</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<header>
-  <nav class="navbar">
-    <a class="logo" href="/">Annegrete Molloka</a>
-
-    <ul class="menu">
-      <li><a href="/#konsultatsioon">Konsultatsioon</a></li>
-      <li><a href="/blog/">Blogi</a></li>
-      <li><a href="/rakendused/">Rakendused</a></li>
-      <li><a href="/#kontakt">Kontakt</a></li>
-    </ul>
-  </nav>
-</header>
+---
+layout: default
+title: Annegrete Molloka
+---
 
 <section class="hero">
   <div class="hero-text">
     <h1>Annegrete Molloka</h1>
-    <p>Ma olen statistika taustaga andmeteadlane. Mulle meeldib andmeid uurida, koodi kirjutada, analüüse läbi viia ja tulemusi visualiseerida.</p>
+    <p>
+      Ma olen statistika taustaga andmeteadlane.
+      Mulle meeldib andmeid uurida, koodi kirjutada,
+      analüüse läbi viia ja tulemusi visualiseerida.
+    </p>
   </div>
 </section>
 
 <section id="konsultatsioon" class="intro">
   <h2>Konsultatsioon</h2>
-  <p>Kui sul on mõttes mõni projekt, võta ühendust. Mõtleme välja, kuidas saan Sind aidata.</p>
+  <p>
+    Kui sul on mõttes mõni projekt, võta ühendust.
+    Mõtleme välja, kuidas saan Sind aidata.
+  </p>
 </section>
 
 <section class="services">
   <div class="service-box">
     <i class="fa fa-4x fa-chart-column text-primary sr-icons"></i>
     <h3>Andmeteadus</h3>
-    <p class="text-muted">Vajad abi andmeteaduse projektiga?<br>Ma saan aidata Sind kogu protsessiga andmete puhastamisest mudelite selgitamiseni.</p>
+    <p class="text-muted">
+      Vajad abi andmeteaduse projektiga?<br>
+      Ma saan aidata Sind kogu protsessiga andmete puhastamisest mudelite selgitamiseni.
+    </p>
   </div>
 
   <div class="service-box">
     <i class="fa fa-4x fa-display text-primary sr-icons"></i>
     <h3>Shiny rakendused</h3>
-    <p class="text-muted">Vajad viisi, kuidas kaasata inimesi andmeid uurima ja kasutama?<br>Lahenduseks on lihtsad, visuaalsed ja interaktiivsed Shiny rakendused.</p>
+    <p class="text-muted">
+      Vajad viisi, kuidas kaasata inimesi andmeid uurima ja kasutama?<br>
+      Lahenduseks on lihtsad, visuaalsed ja interaktiivsed Shiny rakendused.
+    </p>
   </div>
 
   <div class="service-box">
     <i class="fa-solid fa-4x fa-image text-primary sr-icons"></i>
     <h3>Visualiseerimine</h3>
-    <p class="text-muted">Vajad andmeid kuvada pilkupüüdval moel?<br>Ma saan visualiseerida Sinu andmeid. Kasutades d3.js teeki on neid lihtne lisada oma veebilehele.</p>
+    <p class="text-muted">
+      Vajad andmeid kuvada pilkupüüdval moel?<br>
+      Ma saan visualiseerida Sinu andmeid.
+      Kasutades d3.js teeki on neid lihtne lisada oma veebilehele.
+    </p>
   </div>
 </section>
 
@@ -62,18 +56,6 @@
   <h2>Kontakt</h2>
   <h3><a href="mailto:annegretemolloka@gmail.com">annegretemolloka@gmail.com</a></h3>
 
-  <ul class="nupud">
-    <li><a href="mailto:annegretemolloka@gmail.com"><i class="fa fa-envelope"></i></a></li>
-    <li><a href="https://github.com/annegretepeek/"><i class="fa-brands fa-github"></i></a></li>
-    <li><a href="https://www.linkedin.com/in/annegrete-molloka-20b9aba7/"><i class="fa-brands fa-linkedin"></i></a></li>
-  </ul>
+  {% include contact_icons.html %}
 </section>
-
-<script>
-  window.addEventListener("scroll", function () {
-    document.querySelector("header").classList.toggle("scrolled", window.scrollY > 50);
-  });
-</script>
-
-</body>
-</html>
+  
