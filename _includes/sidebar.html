@@ -1,0 +1,73 @@
+<aside class="blog-sidebar">
+
+<section>
+
+<h3>Vaata veel</h3>
+
+<ul>
+
+<li>
+<a href="{{ '/minust/' | relative_url }}">
+Minust
+</a>
+</li>
+
+<li>
+<a href="{{ '/rakendused/' | relative_url }}">
+Rakendused
+</a>
+</li>
+
+<li>
+<a href="{{ '/kasulikud-lingid/' | relative_url }}">
+Kasulikud lingid
+</a>
+</li>
+
+<li>
+<a href="{{ '/blog/' | relative_url }}">
+Blogi
+</a>
+</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h3>Viimased postitused</h3>
+
+<ul class="latest-posts">
+
+{% for post in site.posts limit:3 %}
+
+<li>
+
+<a href="{{ post.url | relative_url }}">
+{{ post.title }}
+</a>
+
+<br>
+
+<small>
+{{ post.date | date: "%d.%m.%Y" }}
+</small>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</section>
+
+<section>
+
+<h3>Kontakt</h3>
+
+{% include contact_icons.html %}
+
+</section>
+
+</aside>

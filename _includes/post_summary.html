@@ -1,0 +1,41 @@
+<article class="post-summary">
+
+    <h2 class="post-title">
+        <a href="{{ include.post.url | relative_url }}">
+            {{ include.post.title }}
+        </a>
+    </h2>
+
+    <p class="post-date">
+        {{ include.post.date | date: "%-d. %B %Y" }}
+    </p>
+
+    {% if include.post.image %}
+    <a href="{{ include.post.url | relative_url }}">
+        <img
+            class="post-image"
+            src="{{ include.post.image | relative_url }}"
+            alt="{{ include.post.title }}">
+    </a>
+    {% endif %}
+
+    <div class="post-excerpt">
+
+        {% if include.post.excerpt %}
+            {{ include.post.excerpt }}
+        {% else %}
+            {{ include.post.content
+                | strip_html
+                | truncatewords: 50 }}
+        {% endif %}
+
+    </div>
+
+    <p class="read-more-wrapper">
+        <a class="read-more"
+           href="{{ include.post.url | relative_url }}">
+            Loe edasi →
+        </a>
+    </p>
+
+</article>
