@@ -2,8 +2,12 @@
 layout: default
 ---
 
-<main class="page-content">
+<div class="content-wrapper">
+  <main class="page-content">
+    {{ content }}
+  </main>
 
-{{ content }}
-
-</main>
+  <aside class="sidebar">
+    {% include sidebar.html %}
+  </aside>
+</div>

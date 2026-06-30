@@ -1,0 +1,10 @@
+title: Annegrete
+description: Personal website and blog
+url: "https://annegrete.ee"
+baseurl: ""
+
+markdown: kramdown
+permalink: /blog/:year/:month/:title/
+
+plugins:
+  - jekyll-feed
