@@ -249,7 +249,13 @@ header {
 
 /* Sidebar */
 .sidebar section {
-  margin-bottom: 2rem;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar section:last-child {
+    border-bottom: none;
 }
 
 .sidebar h3 {
@@ -321,6 +327,32 @@ article img {
   display: block;
 }
 
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.app-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.app-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.app-card h3 {
+  margin-top: 0;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
   .navbar {
@@ -348,5 +380,8 @@ article img {
     grid-template-columns: 1fr;
   }
 
+    .app-grid {
+    grid-template-columns: 1fr;
+  }
 
 }
