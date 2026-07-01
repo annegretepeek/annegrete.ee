@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- load the d3.js library -->    	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="/assets/blog/keskmine-eluiga-2016/countries.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+<style> /* set the CSS */
+.title {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 36px;
+   	fill: #4F4F4F;
+   	font-weight: 300;
+   	text-anchor: start;
+}
+.subtitle {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 16px;
+   	fill: #AAAAAA;
+   	font-weight: 300;
+   	text-anchor: start;
+}
+.credit,  
+.label {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 12px;
+   	fill: #AAAAAA;
+}
+.axis path,
+.axis tick,
+.axis line {
+   	fill: none;
+   	stroke: none;
+}
+.legendTitle {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 20px;
+   	fill: #4F4F4F;
+   	font-weight: 300;
+}
+.axisText {
+	font-family: 'Droid Sans', sans-serif;
+	fill: #C4C4C4;
+	font-size: 14px;
+	font-weight: 300;
+	text-anchor: middle;
+	text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+.axisCircles {
+	fill: none;
+	stroke: #E8E8E8;
+	stroke-width: 1px;
+}
+.graph {
+	width: 1200px;
+	margin: auto;
+}
+
+</style>
+<body>
+<div class="graph"></div>
+<script>
+///////////////////////////////////////////////////////////////////////////
+//////////////////// Set up and initiate svg containers ///////////////////
+///////////////////////////////////////////////////////////////////////////	
+
+	var margin = {top: 150, right: 150, bottom: 170, left: 150 };
+	var width = 1200- margin.left - margin.right;
+	var height = 1200 - margin.top - margin.bottom;
+
+	//SVG container
+	var svg = d3.select(".graph").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform","translate(" + (margin.left + width/2) + "," + margin.top + ")");
+	
+///////////////////////////////////////////////////////////////////////////
+//////////////////////////// Create scales ////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+	//Set the minimum inner radius and max outer radius of the chart
+	var	outerRadius = Math.min(width, height)/2,
+		innerRadius = outerRadius * 0.1;
+
+	//Base the color scale on average temperature extremes
+	var colorScale = d3.scaleOrdinal()
+		.domain(["Africa", "Americas", "Asia", "Europe", "Oceania"])
+		.range(["#FDB20E", "#C180B8", "#F6637D", "#70BD47", "#A2D7E8"]);
+
+	//Scale for the heights of the bar
+	var barScale = d3.scaleLinear()
+		.range([innerRadius, outerRadius])
+		.domain([0,90]); 
+
+	//Scale to turn the date into an angle of 360 degrees in total
+	var angle = d3.scaleLinear()
+		.range([-175, 175])
+		.domain([1, 194]);	 
+
+	///////////////////////////////////////////////////////////////////////////
+	//////////////////////////// Create Titles ////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+
+    //Append title to the top
+    svg.append("text")
+    	.attr("class", "title")
+        .attr("x", -width/2 - 70)
+        .attr("y", -70)
+        .text("Life Expectancy");
+    svg.append("text")
+    	.attr("class", "subtitle")
+        .attr("x", -width/2 - 70)
+        .attr("y", -50)
+        .text("2016");
+
+    //Append credit at bottom
+    svg.append("text")
+    	.attr("class", "credit")
+        .attr("x", width/2)
+        .attr("y", (2*outerRadius + 130))
+        .text("Based on gapminder.org");
+
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////// Create Axes /////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+
+	//Wrapper for the bars and to position it downward
+	var barWrapper = svg.append("g")
+		.attr("transform", "translate(" + 0 + "," + (outerRadius + 10) + ")");
+		
+	//Draw gridlines below the bars
+ 	var axes = barWrapper.selectAll(".gridCircles")
+	 	.data([0,10,20,30,40,50,60,70,80,90])
+	 	.enter().append("g");
+	//Draw the circles
+	axes.append("circle")
+	 	.attr("class", "axisCircles")
+	 	.attr("r", function(d) { return barScale(d); });
+	//Draw the axis labels
+	axes.append("text")
+		.attr("class", "axisText")
+		.attr("y", function(d) { return -barScale(d); })
+		.attr("dy", "0.3em")
+		.text(function(d) { return d});
+
+	///////////////////////////////////////////////////////////////////////////
+	////////////////////////////// Draw bars //////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+
+	//Draw a bar per country were the height is lice expectancy
+	//And the color is based on the continent
+	barWrapper.selectAll(".backBar")
+	 	.data(countries)
+	 	.enter().append("rect")
+	 	.attr("class", "backBar")
+	 	.attr("transform", function(d,i) { return "rotate(" + (angle(d.arv)) + ")"; })
+	 	.attr("width", 0.2)
+	 	.attr("rx", 1.25)
+		.attr("height", function(d,i) { return barScale(90) - barScale(0); })
+	 	.attr("x", 0.5)
+	 	.attr("y", function(d,i) {return barScale(d.start); })
+	 	.style("fill", "grey");
+	
+ 	barWrapper.selectAll(".lifeBar")
+	 	.data(countries)
+	 	.enter().append("rect")
+	 	.attr("class", "lifeBar")
+	 	.attr("transform", function(d,i) { return "rotate(" + (angle(d.arv)) + ")"; })
+	 	.attr("width", 2.5)
+	 	.attr("rx", 1.25)
+		.attr("height", function(d,i) { return barScale(d.end) - barScale(d.start); })
+	 	.attr("x", -0.75)
+	 	.attr("y", function(d,i) {return barScale(d.start); })
+	 	.style("fill", function(d) { return colorScale(d.continent); });
+		
+	///////////////////////////////////////////////////////////////////////////
+	////////////////////////// Add the country names //////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	barWrapper.selectAll(".label")
+    	.data(countries)
+		.enter().append("text")
+	 	.attr("class", "label")
+		.each(function(d) { d.angle = angle(d.arv); })
+		.attr("dy", "0.34em")
+	 	.attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+		.attr("transform", function(d) {
+              return "rotate(" + (d.angle + 90) + ")"
+                  + "translate(" + (outerRadius + 10) + ")"
+                  + (d.angle > Math.PI ? "rotate(180)" : "");
+            })
+	 	.text(function(d,i) { return d.country; });
+		
+	///////////////////////////////////////////////////////////////////////////
+	////////////////////////// Draw the legend ////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	
+	var legendsvg = svg.append("g")
+		.attr("class", "legendWrapper")
+		.attr("transform", "translate(" + -(outerRadius+100) + "," + (2*outerRadius-50) + ")");
+
+	var legendOrdinal = d3.legendColor()
+	  .shapeWidth(30)
+	  .shapePadding(10)
+	  .scale(colorScale);
+
+	svg.select(".legendWrapper")
+	  .call(legendOrdinal);
+          	
+</script>
+
+</body>

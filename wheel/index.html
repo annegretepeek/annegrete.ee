@@ -1,0 +1,316 @@
+---
+layout: default
+title: Do Good!
+permalink: /wheel/
+hide_header: true
+---
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Courgette|Ubuntu|Roboto" rel="stylesheet">
+
+<section class="wheel-page">
+  <div class="wheel-header">
+    <div class="wheel-intro">
+      <h1>Wheel of Good Deeds</h1>
+      <p>Each of us can make the world a better place. Let's start with one person. Spin the wheel and see how you can make someone's day.</p>
+      <button id="wheelButton" type="button">Spin</button>
+      <p class="wheel-credit">
+        Created by <a href="https://annegrete.ee">Annegrete Molloka</a>
+        and <a href="https://github.com/martenveskimae">Märten Veskimäe</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="wheel-body">
+    <div class="wheel-chart">
+      <div id="wheel"></div>
+    </div>
+
+    <aside class="wheel-result">
+      <div id="results">Your result will appear here!</div>
+      <div id="motivationalImage"></div>
+      <div id="motivationalText"></div>
+      <div id="datahack">
+        <p>☆ ☆ ☆</p>
+        <p>If you want to do more, join us on <a href="http://sidh2017.ut.ee/">Social Impact Data Hack 2017</a>!</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .wheel-page {
+    margin: 0 auto 4rem;
+    color: #202529;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .wheel-header {
+    background: #202529;
+    color: #fff;
+  }
+
+  .wheel-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .wheel-intro h1 {
+    margin: 0 0 1rem;
+    font: 45px "Ubuntu", sans-serif;
+    letter-spacing: 0;
+  }
+
+  .wheel-intro p {
+    margin: 0 auto 1rem;
+    max-width: 680px;
+  }
+
+  #wheelButton {
+    width: 160px;
+    height: 36px;
+    margin: 0.5rem 0 1rem;
+    border: 0;
+    background: #fcd088;
+    color: #202529;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .wheel-credit {
+    font-size: 0.85rem;
+  }
+
+  .wheel-credit a {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .wheel-body {
+    display: grid;
+    grid-template-columns: minmax(0, 700px) minmax(280px, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    align-items: start;
+  }
+
+  .wheel-chart {
+    min-width: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  #wheel svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .sliceArc {
+    fill: white;
+    stroke: #aaa;
+  }
+
+  .sliceText {
+    fill: white;
+    font-size: 18px;
+    font-family: "Courgette", sans-serif;
+  }
+
+  .wheel-result {
+    padding-top: 3rem;
+    text-align: center;
+  }
+
+  #results {
+    color: #202529;
+    font-size: 30px;
+    font-family: "Courgette", sans-serif;
+  }
+
+  #motivationalImage {
+    text-align: center;
+  }
+
+  #resultIMG {
+    width: min(75%, 360px);
+    height: auto;
+    padding: 20px;
+  }
+
+  #motivationalText {
+    text-align: left;
+  }
+
+  #datahack {
+    display: none;
+    margin-top: 1.5rem;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .wheel-page {
+      margin-top: 0;
+    }
+
+    .wheel-body {
+      grid-template-columns: 1fr;
+    }
+
+    .wheel-result {
+      padding-top: 0;
+    }
+  }
+</style>
+
+<script>
+  var margin = {left: 20, top: 100, right: 20, bottom: 100},
+    width = 700 - margin.left - margin.right,
+    height = 750 - margin.top - margin.bottom;
+
+  var svg = d3.select("#wheel")
+    .append("svg")
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+    .attr("role", "img")
+    .attr("aria-label", "Wheel of Good Deeds")
+    .append("g").attr("class", "wrapper")
+    .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
+
+  var spinData = [],
+    deeds = ["Hug", "Smile", "Call", "Compliment", "Positive note", "Thank someone", "Donate", "Laugh", "Listen", "Say YES", "Be grateful", "Love"],
+    motivation = [
+      "Today you should hug someone! You can make someone's day just by giving them a nice warm bear hug! It can be a family member, a colleague, a friend or a random stranger on the street. But remember, do not hug someone you don't know without asking them first.",
+      "Today you should smile to a stranger! You can brighten someone's day just by smiling at them on the street.",
+      "Today you should call an old friend! This friend may even be your mom, granddad, or sister whom you haven't spoken to for a while. Make their day by showing that you care about them!",
+      "Today you should give a compliment! Let a colleague know that their hard work is being noticed. Let the guy with the cool bike know that you like his ride. Or compliment someone online.",
+      "Today you should leave a positive note! Leave a positive note for a family member or a friend or a stranger. Maybe hide it from the sight so it will be a fun surprise!",
+      "Today you should give thanks. Let the barista know that you appreciate her or his work. Or just say “Thank you” to your partner for being amazing!",
+      "Today you should donate. You can donate old clothes or things you don’t need anymore, but someone else might. You can also help someone with a little money. Or donate your time for a good cause!",
+      "Today you should make someone laugh. Tell a joke or make a pun at work. Maybe do funny impressions for kids. Or send a hilarious picture to a friend.",
+      "Today you should listen. Ask your friends, maybe someone in trouble, how they are doing and if they need someone to talk to. Offer your time to listen to them!",
+      "Today you should say “Yes” to someone. Maybe it is your friend who would like to meet and catch up. Maybe it is a stranger asking for help. Maybe it is your kid who wants to play with you. Say YES!",
+      "Today you should be grateful. You should write down 3 to 5 things that you are grateful for!",
+      "Today you should show love. Let at least one person know that you love him or her and maybe even give a reason why. This will surely make their day!"
+    ],
+    images = ["hug.jpeg", "smile.jpeg", "call.jpeg", "compliment.jpeg", "positive_note.jpeg", "thank_someone.jpeg", "donate.jpeg", "laugh.jpeg", "listen.jpeg", "say_yes.jpeg", "be_grateful.jpeg", "love.jpeg"];
+
+  deeds.forEach(function(d, i) {
+    var u = 360 / deeds.length;
+    var s = i === 0 ? 0 : spinData[i - 1].end + 1;
+    var e = i === 0 ? u : s + u - 1;
+    spinData.push({label: d, start: s, end: e, motivation: motivation[i], image: images[i]});
+  });
+
+  var colorScale = d3.scaleOrdinal(d3.schemeCategory20c);
+
+  var arc = d3.arc()
+    .innerRadius(10)
+    .outerRadius(width * 0.9 / 2 + 30);
+
+  var pie = d3.pie()
+    .value(function(d) { return d.end - d.start; })
+    .padAngle(0.005)
+    .sort(null);
+
+  var spinner = svg.append("g")
+    .attr("class", "dharmachakra");
+
+  spinner.selectAll(".sliceArc")
+    .data(pie(spinData))
+    .enter()
+    .append("path")
+    .attr("class", "sliceArc")
+    .style("fill", function(d, i) { return colorScale(i); })
+    .attr("id", function(d, i) { return "sliceArc_" + i; })
+    .attr("d", arc);
+
+  var arcradius = width * 0.9 / 2 + 25,
+    circleradius = 2.2,
+    n = (Math.PI * 2 * arcradius) / (circleradius * 10);
+
+  for (var i = 0; i < n; i++) {
+    var ang = (Math.PI * 2 * i) / n,
+      cx = arcradius * Math.sin(ang),
+      cy = arcradius * Math.cos(ang);
+
+    spinner.append("circle")
+      .attr("class", "sliceDots")
+      .attr("cx", cx)
+      .attr("cy", cy)
+      .attr("r", circleradius)
+      .attr("fill", "white");
+  }
+
+  spinner.selectAll(".sliceText")
+    .data(spinData)
+    .enter()
+    .append("text")
+    .attr("class", "sliceText")
+    .attr("id", function(d) { return d.label; })
+    .attr("dx", (width * 0.9 / 2 + 30) * Math.PI / deeds.length)
+    .attr("dy", 30)
+    .append("textPath")
+    .style("text-anchor", "middle")
+    .attr("xlink:href", function(d, i) { return "#sliceArc_" + i; })
+    .text(function(d) { return d.label; });
+
+  svg.append("polygon")
+    .attr("class", "pointer")
+    .attr("points", (-(width * 0.9 / 2 + 30) / 24) + "," + (-(width * 0.9 / 2 + 30) - (width * 0.9 / 2 + 30) / 12) + " " +
+      ((width * 0.9 / 2 + 30) / 24) + "," + (-(width * 0.9 / 2 + 30) - (width * 0.9 / 2 + 30) / 12) + " " +
+      "0," + (-(width * 0.9 / 2 + 30) - (width * 0.9 / 2 + 30) / 12 + 40))
+    .style("opacity", 1)
+    .attr("fill", "white")
+    .attr("stroke", "#aaa")
+    .attr("stroke-width", 2);
+
+  svg.append("circle")
+    .attr("id", "pointerCircle")
+    .attr("cx", 0)
+    .attr("cy", -width / 2 - 25)
+    .attr("r", (width * 0.9 / 2 + 30) / 24)
+    .attr("fill", "white")
+    .attr("stroke", "#aaa")
+    .attr("stroke-width", 2);
+
+  function selectedSlice(rotation) {
+    var normalized = ((rotation % 360) + 360) % 360;
+    var pointerAngle = (360 - normalized) % 360;
+    return spinData.find(function(d) {
+      return pointerAngle >= d.start && pointerAngle <= d.end;
+    }) || spinData[0];
+  }
+
+  var currentRotation = 0;
+  function spin() {
+    var extraRotation = Math.floor(Math.random() * 5500) + 800;
+    currentRotation += extraRotation;
+    var duration = (extraRotation * 400) / 360;
+
+    d3.select(".dharmachakra")
+      .transition()
+      .ease(d3.easeQuadOut)
+      .duration(duration)
+      .attr("transform", "rotate(" + currentRotation + ")");
+
+    var ticker = d3.interval(function() {
+      var randomPick = spinData[Math.floor(Math.random() * spinData.length)];
+      document.getElementById("results").innerHTML = randomPick.label + "!";
+    }, 80);
+
+    window.setTimeout(function() {
+      ticker.stop();
+      var result = selectedSlice(currentRotation);
+      document.getElementById("results").innerHTML = result.label + "!";
+      document.getElementById("motivationalImage").innerHTML = "<img id='resultIMG' src='/assets/blog/teeme-head/wheel/img/" + result.image + "' alt=''>";
+      document.getElementById("motivationalText").innerHTML = result.motivation;
+      d3.select("#datahack").style("display", "block");
+    }, duration + 150);
+  }
+
+  document.getElementById("wheelButton").addEventListener("click", spin);
+</script>

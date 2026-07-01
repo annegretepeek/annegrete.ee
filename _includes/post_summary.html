@@ -10,32 +10,35 @@
         {{ include.post.date | date: "%-d. %B %Y" }}
     </p>
 
-    {% if include.post.image %}
-    <a href="{{ include.post.url | relative_url }}">
-        <img
-            class="post-image"
-            src="{{ include.post.image | relative_url }}"
-            alt="{{ include.post.title }}">
-    </a>
-    {% endif %}
+    <div class="post-summary-body{% unless include.post.image %} no-image{% endunless %}">
 
-    <div class="post-excerpt">
-
-        {% if include.post.excerpt %}
-            {{ include.post.excerpt }}
-        {% else %}
-            {{ include.post.content
-                | strip_html
-                | truncatewords: 50 }}
+        {% if include.post.image %}
+        <a class="post-summary-image-link" href="{{ include.post.url | relative_url }}">
+            <img
+                class="post-summary-image"
+                src="{{ include.post.image | relative_url }}"
+                alt="{{ include.post.title }}">
+        </a>
         {% endif %}
 
-    </div>
+        <div class="post-summary-text">
 
-    <p class="read-more-wrapper">
-        <a class="read-more"
-           href="{{ include.post.url | relative_url }}">
-            Loe edasi →
-        </a>
-    </p>
+            <p class="post-excerpt">
+                {{ include.post.content
+                    | strip_html
+                    | normalize_whitespace
+                    | truncate: 300 }}
+            </p>
+
+            <p class="read-more-wrapper">
+                <a class="read-more"
+                   href="{{ include.post.url | relative_url }}">
+                    loe edasi
+                </a>
+            </p>
+
+        </div>
+
+    </div>
 
 </article>

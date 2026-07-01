@@ -9,15 +9,18 @@
 <script src="{{ '/assets/js/external-links.js' | relative_url }}"></script>
 <body>
 
+    {% unless page.hide_header %}
     {% include header.html %}
+    {% endunless %}
 
     {{ content }}
 
     <script>
         window.addEventListener("scroll", function () {
-            document
-                .querySelector("header")
-                .classList.toggle("scrolled", window.scrollY > 50);
+            const siteHeader = document.querySelector("header");
+            if (siteHeader) {
+                siteHeader.classList.toggle("scrolled", window.scrollY > 50);
+            }
         });
     </script>
 

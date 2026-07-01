@@ -95,7 +95,7 @@ header {
   text-align: center;
   background:
     linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url("../images/cropped-canyon.jpg");
+    url("../images/site/cropped-canyon.jpg");
   background-position: center;
   background-size: cover;
   place-items: center;
@@ -206,6 +206,33 @@ header {
   margin-bottom: 4rem;
 }
 
+.post-summary-body {
+  display: grid;
+  grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.post-summary-body.no-image {
+  grid-template-columns: 1fr;
+}
+
+.post-summary-image-link {
+  display: block;
+}
+
+
+.post-summary-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.post-summary-text {
+  min-width: 0;
+}
+
 .post-title {
   margin-bottom: 0.3rem;
 }
@@ -232,6 +259,7 @@ header {
 }
 
 .post-excerpt {
+  margin-top: 0;
   font-weight: 300;
 }
 
@@ -306,6 +334,47 @@ article img {
   color: #fcd088;
 }
 
+.post-content li {
+  font-weight: 300;
+}
+
+.post-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+.post-navigation-link {
+  color: #656d6d;
+  text-decoration: none;
+}
+
+.post-navigation-link:hover {
+  color: #fcd088;
+}
+
+.post-navigation-label,
+.post-navigation-title {
+  display: block;
+}
+
+.post-navigation-label {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.post-navigation-title {
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.next-post {
+  text-align: right;
+}
+
 .page-image {
   display: block;
   max-width: 420px;
@@ -353,6 +422,52 @@ article img {
   margin-top: 0;
 }
 
+.post-content table {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0 1.8rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.post-content th,
+.post-content td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.post-content th {
+  color: #202529;
+  font-weight: 600;
+}
+
+.image-caption {
+  margin-top: -0.3rem;
+  color: #999;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.post-sources {
+  margin-top: 2rem;
+  color: #777;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.post-source-title {
+  margin-bottom: 0.45rem;
+}
+
+.post-source-row {
+  margin-bottom: 0.35rem;
+}
+
+.post-sources a {
+  font-weight: 400;
+}
+
 /* Responsive */
 @media (max-width: 800px) {
   .navbar {
@@ -367,8 +482,14 @@ article img {
   }
 
   .services,
-  .blog-layout {
+  .blog-layout,
+  .post-summary-body,
+  .post-navigation {
     grid-template-columns: 1fr;
+  }
+
+  .next-post {
+    text-align: left;
   }
 
   .page-content,

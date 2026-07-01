@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis .domain {
+  display: none;
+}
+text {
+	font-family: 'Open Sans', sans-serif;
+}
+.title {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 24px;
+   	fill: #4F4F4F;
+   	font-weight: 300;
+   	text-anchor: start;
+}
+</style>
+<body>
+<svg width="680" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script>
+	//Based of example: https://bl.ocks.org/mbostock/3887051 //
+	var svg = d3.select("svg"),
+		margin = {top: 60, right: 20, bottom: 30, left: 150},
+		width = +svg.attr("width") - margin.left - margin.right,
+		height = +svg.attr("height") - margin.top - margin.bottom,
+		g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	var y0 = d3.scaleBand()
+		.rangeRound([0, height])
+		.paddingInner(0.1);
+
+	var y1 = d3.scaleBand()
+		.padding(0.05);
+
+	var x = d3.scaleLinear()
+		.rangeRound([0, width]);
+
+	var z = d3.scaleOrdinal()
+		.range(["#a6cee3", "#1f78b4", "#b2df8a"]);
+	
+	svg.append("text")
+    	.attr("class", "title")
+        .attr("x", 10)
+        .attr("y", 30)
+        .text("Süüteod 2016. aastal");
+
+	d3.csv("/assets/blog/hurraa-tartus-on-ohutum/Tartu16.csv", function(d, i, columns) {
+	  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+	  return d;
+	}, function(error, data) {
+	  if (error) throw error;
+
+	  var keys = data.columns.slice(1);
+
+	  y0.domain(data.map(function(d) { return d.rikkumine; }));
+	  y1.domain(keys).rangeRound([0, y0.bandwidth()]);
+	  x.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+	  g.append("g")
+		.selectAll("g")
+		.data(data)
+		.enter().append("g")
+		  .attr("transform", function(d) { return "translate(0," + y0(d.rikkumine) + ")"; })
+		.selectAll("rect")
+		.data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+		.enter().append("rect")
+		  .attr("y", function(d) { return y1(d.key); })
+		  .attr("x", 0)
+		  .attr("height", y1.bandwidth())
+		  .attr("width", function(d) { return x(d.value); })
+		  .attr("fill", function(d) { return z(d.key); });
+
+		  g.append("g")
+		  .attr("class", "axis")
+		  .attr("transform", "translate(0," + height + ")")
+		  .call(d3.axisBottom(x))
+		 .append("text")
+		  .attr("x", width - 130)
+		  .attr("y", -10)
+		  .attr("dy", "0.32em")
+		  .attr("fill", "#000")
+		  //.attr("font-weight", "bold")
+		  .attr("text-anchor", "start")
+		  .text("Rikkumist 1000 elaniku kohta");
+
+	  g.append("g")
+		  .attr("class", "axis")
+		  .call(d3.axisLeft(y0).tickSize(0))
+		  .selectAll("text")
+			.call(wrap, 150);
+
+	  var legend = g.append("g")
+		  .attr("font-family", "sans-serif")
+		  .attr("font-size", 10)
+		  .attr("text-anchor", "end")
+		.selectAll("g")
+		.data(keys.slice())
+		.enter().append("g")
+		  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+	  legend.append("rect")
+		  .attr("x", width - 19)
+		  .attr("width", 19)
+		  .attr("height", 19)
+		  .attr("fill", z);
+
+	  legend.append("text")
+		  .attr("x", width - 24)
+		  .attr("y", 9.5)
+		  .attr("dy", "0.32em")
+		  .text(function(d) { return d; });
+});
+// http://www.cagrimmett.com/til/2016/04/26/responsive-d3-bar-chart.html//
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", -10).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", -10).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
+</script>
+</body>

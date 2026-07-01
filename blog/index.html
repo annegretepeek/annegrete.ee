@@ -4,14 +4,12 @@ title: Blogi
 permalink: /blog/
 ---
 
-<div class="blog-layout">
+<main class="blog-posts">
 
-    <main class="blog-posts">
+    <h1>Blogi</h1>
 
-        {% for post in site.posts %}
-            {% include post_summary.html post=post %}
-        {% endfor %}
+    {% for post in site.posts %}
+        {% include post_summary.html post=post %}
+    {% endfor %}
 
-    </main>
-
-</div>
+</main>

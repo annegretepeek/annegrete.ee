@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tartu Maraton</title>
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+		<style type="text/css">
+		.start rect {
+			fill: gray;
+			opacity: 0.2;
+			border-radius: 20px;
+			}
+		.start text {
+			text-anchor: middle;
+		}
+		.start:hover rect {
+			opacity: 0.4;
+		}
+		text {
+			font-family: Helvetica, Arial, sans-serif;
+		}
+		#header {
+			position: absolute;
+			top: 0;
+			left: 10px;
+			text-align: left;
+			float: left;
+			width: 420px;
+			margin: 0 0 0 0px;
+			height: 0;
+			z-index: 1;
+		}
+		#header h1 {
+			font-family: Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			font-size: 40px;
+			margin: 20px 30px 0 0;
+		}
+		#heading, #byline {
+			display: block;
+		}
+		#footer {
+			position: absolute;
+			display: block;
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			margin: 580px 0 20px;
+			color: gray;
+			
+		}
+		#byline {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			margin: 0 30px 30px 0;
+			color: gray;
+		}
+		#byline span {
+			font-weight: bold;
+		}
+		select {
+			position: absolute;
+			margin: 100px 0 0 0;
+			left: 10px;
+		}
+		#legend {
+			position: absolute;
+			margin: 70px 0 0 0;
+		}
+		#skierInfo {
+			margin: 60px 0 0 0;
+			height: 200px;
+			z-index: -1;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1 id="heading">Tartu Maraton '18</h1>
+			<div id="byline"><span>Annegrete Molloka</span></div>
+			<div id="skierInfo"></div>
+			<div id="legend"></div>
+			
+		</div>
+		<div id="footer">Andmed: tartumaraton.ee</div>
+		<script type="text/javascript">
+
+			//Width and height
+			var w = 600;
+			var h = 600;
+
+			//Define map projection
+			var projection = d3.geoMercator();
+
+			//Define path generator
+			var path = d3.geoPath()
+							 .projection(projection);
+
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+			
+			var dataset = ["3:08:16", "4:53:32", "5:32:43", "9:09:01"];
+			var colors = ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99"];
+			var places = ["Esimene lõpetaja", "Keskmine mees", "Keskmine naine", "Viimane lõpetaja"];
+
+			var svgLegend = d3.select("#legend").append("svg");
+			var circleLegend = svgLegend.selectAll("circle")
+						.data(colors.slice(0,4))
+						.enter()
+						.append("circle")
+						.attr("r", 5)
+						.style("fill", function(d) {return d})
+						.attr("transform", function(d,i) {
+							return "translate(5,"+ (i*20 + 5) +")"
+						});
+			var textLegend = svgLegend.selectAll("text")
+						.data(places)
+						.enter()
+						.append("text")
+						.attr("x", 20)
+						.attr("y", function(d,i) {
+							return i*20 + 10;
+						})
+						.style("font-size", "12px")
+						.text(function(d) {return d;});
+			
+			var svgSkier = d3.select("#skierInfo").append("svg");
+			
+			//Load in GeoJSON data
+			d3.json("rada.json", function(json) {
+			
+				projection.fitExtent([[200,50],[w, h-5]], json);
+				
+				//Bind data and create one path per GeoJSON feature
+				var path2 = svg.selectAll("path")
+				   .data(json.features)
+				   .enter()
+				   .append("path")
+				   .attr("d", path)
+				   .style("fill", "none")
+				   .attr("stroke", "lightgray");
+				   
+				d3.csv("/assets/blog/jaljendame-tartu-maratoni-osalejaid/tartu18.csv", function(results) {
+					
+					var names = ["Vali võistleja"];
+					var times = [""];
+					
+					results.map(function(d) {
+						names.push(d.name)
+						times.push(d.time_net) 
+					});
+				
+					var select = d3.select('body')
+						.append('select')
+						.attr('class','select')
+						.on('change',onchange);
+
+					var options = select.selectAll('option')
+						.data(names).enter()
+						.append('option')
+							.text(function (d) { return d; });
+
+					function onchange() {
+						selectValue = d3.select('select').property('value')
+						i = names.indexOf(selectValue) - 1; 
+						dataset[4] = times[i + 1];
+						
+						svg.selectAll("circle")
+							.data(dataset)
+							.enter()
+							.append("circle")
+							.attr("r", 5)
+							.attr("opacity", 0.9)
+							.style("fill", function(d,i) {return colors[i]})
+							.attr("transform", "translate(" + projection(json.features[0].geometry.coordinates[0])[0] + 
+								"," + projection(json.features[0].geometry.coordinates[0])[1] +")");
+						
+						svgSkier.selectAll("*").remove();
+						if (i > -1){
+						svgSkier.append("circle")
+							.attr("r", 5)
+							.style("fill", "#fb9a99")
+							.attr("transform", "translate(5,25)");
+
+						svgSkier.append("text")
+							.attr("x", 20)
+							.attr("y", 30)
+							.style("font-size", "14px")
+							.style("font-weight", "bold")
+							.text(selectValue);
+						
+						svgSkier.append("text")
+							.attr("x", 20)
+							.attr("y", 45)
+							.style("font-size", "12px")
+							.text("Aeg: " + results[i].time_net);
+						
+						svgSkier.append("text")
+							.attr("x", 20)
+							.attr("y", 60)
+							.style("font-size", "12px")
+							.text("Üldkoht: " + results[i].position_overall);
+						
+						svgSkier.append("text")
+							.attr("x", 20)
+							.attr("y", 75)
+							.style("font-size", "12px")
+							.text( function() {
+								if  (results[i].category.charAt(0) === "M") {
+									return "Koht meeste arvestuses: " + results[i].position_gender;
+								} else { 
+									return "Koht naiste arvestuses: " + results[i].position_gender;
+								}
+							});
+						
+						svgSkier.append("text")
+							.attr("x", 20)
+							.attr("y", 90)
+							.style("font-size", "12px")
+							.text("Vanuseklassi " + results[i].category + " koht: " + results[i].position_category);
+						};
+						}
+					
+					var circle = svg.selectAll("circle")
+						.data(dataset)
+						.enter()
+						.append("circle")
+						.attr("r", 5)
+						.attr("opacity", 0.9)
+						.style("fill", function(d,i) {return colors[i]})
+						.attr("transform", "translate(" + projection(json.features[0].geometry.coordinates[0])[0] + 
+							"," + projection(json.features[0].geometry.coordinates[0])[1] +")");
+					
+					function transition() {
+						svg.selectAll("circle")
+							.transition()
+							.ease(d3.easeLinear) 
+							.duration( function (d, i){return timeToSeconds(d)})
+							.attrTween("transform", translateAlong(path2.node()));
+							//.on("end", transition);
+					}
+
+					// Returns an attrTween for translating along the specified path element.
+					function translateAlong(path) {
+					  var l = path.getTotalLength();
+					  return function(d, i, a) {
+						return function(t) {
+						  var p = path.getPointAtLength(t * l);
+						  return "translate(" + p.x + "," + p.y + ")";
+						};
+					  };
+					}
+					
+					function timeToSeconds (timeStr) {
+						var timeArr = timeStr.split(":");
+						var H = +timeArr[0];
+						var M = +timeArr[1];
+						var S = +timeArr[2];
+						var secs = H * 60 * 60 + M * 60 + S;
+						if (isNaN(secs)) secs = 0;
+						return secs;
+					}
+					
+					var startButton = svg.append("g")
+						.attr("class", "start")	
+						.attr("transform", "translate(0,350)");
+
+					startButton.append("rect")
+						.attr("x", 0)
+						.attr("y", 0)
+						.attr("width", 100)
+						.attr("height", 30);
+
+					startButton.append("text")
+						.attr("x", 50)
+						.attr("y", 20)
+						.text("Start");
+					
+					d3.selectAll(".start")
+						.on("click", transition);
+					
+					svg.append("text")
+						.attr("x", 490)
+						.attr("y", 380)
+						.style("font-size", "12px")
+						.style("fill", "gray")
+						.text("Otepää");
+					svg.append("text")
+						.attr("x", 400)
+						.attr("y", 30)
+						.style("font-size", "12px")
+						.style("fill", "gray")
+						.text("Elva");
+				});
+			});
+			
+		</script>
+	</body>
+</html>

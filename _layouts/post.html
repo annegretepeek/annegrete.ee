@@ -27,6 +27,28 @@ layout: default
 
             </div>
 
+            {% if page.previous or page.next %}
+            <nav class="post-navigation" aria-label="Post navigation">
+
+                {% if page.previous %}
+                <a class="post-navigation-link previous-post"
+                   href="{{ page.previous.url | relative_url }}">
+                    <span class="post-navigation-label">Eelmine postitus</span>
+                    <span class="post-navigation-title">{{ page.previous.title }}</span>
+                </a>
+                {% endif %}
+
+                {% if page.next %}
+                <a class="post-navigation-link next-post"
+                   href="{{ page.next.url | relative_url }}">
+                    <span class="post-navigation-label">Järgmine postitus</span>
+                    <span class="post-navigation-title">{{ page.next.title }}</span>
+                </a>
+                {% endif %}
+
+            </nav>
+            {% endif %}
+
         </article>
 
     </main>

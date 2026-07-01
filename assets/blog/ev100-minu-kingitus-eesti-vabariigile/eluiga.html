@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- load the d3.js library -->    	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+<style> /* set the CSS */
+.title {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 32px;
+   	fill: #4F4F4F;
+   	font-weight: 300;
+   	text-anchor: start;
+}
+.subtitle {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 13px;
+   	fill: #AAAAAA;
+   	font-weight: 300;
+   	text-anchor: start;
+}
+.credit,  
+.label {
+	font-family: 'Droid Sans', sans-serif;
+   	font-size: 11px;
+   	fill: lightgrey;
+}
+.axis path,
+.axis tick,
+.axis line {
+   	fill: none;
+   	stroke: none;
+}
+.axisText {
+	font-family: 'Droid Sans', sans-serif;
+	fill: lightgrey;
+	font-size: 11px;
+	font-weight: 300;
+	text-anchor: middle;
+	text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+}
+.axisCircles {
+	fill: none;
+	stroke: lightgrey;
+	stroke-width: 0.5px;
+}
+.graph {
+	width: 800px;
+}
+
+</style>
+<body>
+<script>
+///////////////////////////////////////////////////////////////////////////
+//////////////////// Set up and initiate svg containers ///////////////////
+///////////////////////////////////////////////////////////////////////////	
+
+	var margin = {top: 80, right: 60, bottom: 80, left: 120 };
+	var width = 700- margin.left - margin.right;
+	var height = 700 - margin.top - margin.bottom;
+
+	//SVG container
+	var svg = d3.select("body").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform","translate(" + (margin.left + width/2) + "," + margin.top + ")");
+	
+///////////////////////////////////////////////////////////////////////////
+//////////////////////////// Create scales ////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+	//Set the minimum inner radius and max outer radius of the chart
+	var	outerRadius = Math.min(width, height)/2,
+		innerRadius = outerRadius * 0.1;
+
+	//Scale for the heights of the bar
+	var barScale = d3.scaleLinear()
+		.range([innerRadius, outerRadius])
+		.domain([0,80]); 
+
+	//Scale to turn the date into an angle of 360 degrees in total
+	var angle = d3.scaleLinear()
+		.range([-175, 175])
+		.domain([1, 100]);	 
+
+	///////////////////////////////////////////////////////////////////////////
+	//////////////////////////// Create Titles ////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+
+    //Append title to the top
+    svg.append("text")
+    	.attr("class", "title")
+        .attr("x", -width/2 - 70)
+        .attr("y", -50)
+        .text("Elagu eestlased!");
+    svg.append("text")
+    	.attr("class", "subtitle")
+        .attr("x", -width/2 - 70)
+        .attr("y", -30)
+        .text("Viimase 100 aastaga on eestlased");
+	svg.append("text")
+    	.attr("class", "subtitle")
+        .attr("x", -width/2 - 70)
+		.attr("y", -10)
+        .text("lisanud oma oodatavale elueale");
+	svg.append("text")
+    	.attr("class", "subtitle")
+        .attr("x", -width/2 - 70)
+        .attr("y", 10)
+        .text("rohkem kui 25 aastat.");
+
+    //Append credit at bottom
+    svg.append("text")
+    	.attr("class", "credit")
+        .attr("x", -330)
+        .attr("y", 595)
+        .text("Põhineb gapminder.org andmetel, 2017 on hinnang.");
+
+	///////////////////////////////////////////////////////////////////////////
+	///////////////////////////// Create Axes /////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+
+	//Wrapper for the bars and to position it downward
+	var barWrapper = svg.append("g")
+		.attr("transform", "translate(" + 0 + "," + (outerRadius + 10) + ")");
+		
+	//Draw gridlines below the bars
+ 	var axes = barWrapper.selectAll(".gridCircles")
+	 	.data([0,10,20,30,40,50,60,70,80])
+	 	.enter().append("g");
+	//Draw the circles
+	axes.append("circle")
+	 	.attr("class", "axisCircles")
+	 	.attr("r", function(d) { return barScale(d); });
+	//Draw the axis labels
+	axes.append("text")
+		.attr("class", "axisText")
+		.attr("y", function(d) { return -barScale(d); })
+		.attr("dy", "0.3em")
+		.text(function(d) { 
+		if (d > 10) {return d;}
+		});
+		
+	///////////////////////////////////////////////////////////////////////////
+	////////////////////////////// Draw bars //////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////
+	
+	d3.csv("/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.csv", function(error, eesti) {
+		if (error) throw error;
+		
+		eesti.forEach(function(d) {
+					d.value = +d.value;
+					d.year = +d.year;
+				});
+				
+		var defs = svg.append("defs")
+
+		//Create two separate gradients for the main and mini bar - just because it looks fun
+		createGradient("gradient", "35%");
+		
+		//Create a gradient 
+		function createGradient(idName, endPerc) {
+			var colours = ["#fff", "#000000","#000000","#000000", "#4891d9","#4891d9","#4891d9"];
+
+			defs.append("linearGradient")
+			  .attr("id", idName)
+			  .attr("gradientUnits", "userSpaceOnUse")
+			  .attr("x1", "0%").attr("y1", "0%")
+			  .attr("y2", endPerc).attr("x2", "0%")
+			  .selectAll("stop") 
+			  .data(colours)                  
+			  .enter().append("stop") 
+			  .attr("offset", function(d,i) { return i/(colours.length-1); })   
+			  .attr("stop-color", function(d) { return d; });
+		  }//createGradient
+		//source: http://bl.ocks.org/nbremer/d8dff2fa37345d54f9e58eb74db460d0 //
+		
+		//Draw a bar per country were the height is lice expectancy
+		//And the color is based on the continent
+		barWrapper.selectAll(".backBar")
+			.data(eesti)
+			.enter().append("rect")
+			.attr("class", "backBar")
+			.attr("transform", function(d,i) { return "rotate(" + (angle(d.year - 1917)) + ")"; })
+			.attr("width", 0.2)
+			.attr("rx", 1.25)
+			.attr("height", function(d,i) { return barScale(80) - barScale(0); })
+			.attr("x", 2)
+			.attr("y", function(d,i) {return barScale(0); })
+			.style("fill", "lightgrey");
+		
+		barWrapper.selectAll(".lifeBar")
+			.data(eesti)
+			.enter().append("rect")
+			.attr("class", "lifeBar")
+			.attr("transform", function(d,i) { return "rotate(" + (angle(d.year - 1917)) + ")"; })
+			.attr("width", 6)
+			.attr("rx", 2)
+			.attr("height", function(d,i) { return barScale(d.value) - barScale(0); })
+			.attr("x", -0.75)
+			.attr("y", function(d,i) {return barScale(0); })
+			.style("fill", "url(#gradient)");
+			//.attr("fill", "#4891d9");
+			
+		///////////////////////////////////////////////////////////////////////////
+		////////////////////////// Add the year numbers  //////////////////////////
+		///////////////////////////////////////////////////////////////////////////
+		barWrapper.selectAll(".label")
+			.data(eesti)
+			.enter().append("text")
+			.attr("class", "label")
+			.each(function(d) { d.angle = angle(d.year - 1917); })
+			.attr("dy", "0.34em")
+			.attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+			.attr("transform", function(d) {
+				  return "rotate(" + (d.angle + 90) + ")"
+					  + "translate(" + (outerRadius + 10) + ")"
+					  + (d.angle > Math.PI ? "rotate(180)" : "");
+				})
+			.text(function(d,i) { return d.year; });
+	})
+	
+          	
+</script>
+
+</body>

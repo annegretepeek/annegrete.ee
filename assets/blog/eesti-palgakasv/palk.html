@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> /* set the CSS */
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+.dots {
+  fill: steelblue;
+
+}
+.option {
+  margin: 10px;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 60px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;
+}
+
+</style>
+<body>
+
+<div class="option">
+    <input name="updateButton"
+           type="button"
+           value="Absoluutne palk"
+           onclick="updateData('palk')"
+    />
+	    <input name="updateButton2"
+           type="button"
+           value="Tarbijahinnaindeksiga kohandatud palk"
+           onclick="updateData('par_palk')"
+    />
+    <input name="updateButton3"
+           type="button"
+           value="Osakaal Soome palgast"
+           onclick="updateData('osakaal')"
+    />
+</div>
+
+<!-- load the d3.js library -->    	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 640 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// parse the date / time
+var parseTime = d3.timeParse("%d-%m-%Y");
+var kuu = d3.timeFormat("%-m");
+var aasta = d3.timeFormat("%y");
+
+// set the ranges
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
+
+// define the line
+var valueline = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.palk); });
+	
+// Define the div for the tooltip
+var div = d3.select("body").append("div")	
+    .attr("class", "tooltip")				
+    .style("opacity", 0);
+	
+// append the svg obgect to the body of the page
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("/assets/blog/eesti-palgakasv/data.csv", function(error, data) {
+  if (error) throw error;
+
+  // format the data
+  data.forEach(function(d) {
+      d.date = parseTime(d.date);
+      d.palk = +d.palk;
+  });
+
+  // Scale the range of the data
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) { return d.palk; })]);
+
+  // Add the valueline path.
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+	  
+  // Add the scatterplot
+    svg.selectAll("dot")	
+        .data(data)			
+    .enter().append("circle")
+		.attr("class", "dots")	
+        .attr("r", 3)		
+        .attr("cx", function(d) { return x(d.date); })		 
+        .attr("cy", function(d) { return y(d.palk); })		
+        .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            div	.html((Number(kuu(d.date))+2)/3 + ". kv " + aasta(d.date) + "<br/>"  + d.palk + "€")	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })					
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
+
+  // Add the X Axis
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+
+  // Add the Y Axis
+  svg.append("g")
+	  .attr("class", "y axis")
+      .call(d3.axisLeft(y)
+	    .tickFormat(d3.format("d")))
+    .append("text")
+	  .attr("class", "y label")
+      .attr("fill", "#000")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Palk (€)");
+});
+
+function updateData(tunnus) {
+
+    // Get the data again
+    d3.csv("/assets/blog/eesti-palgakasv/data.csv", function(error, data) {
+        data.forEach(function(d) {
+                d.date = parseTime(d.date);
+                d.palk = +d[tunnus];
+            });
+
+        // Scale the range of the data again
+        y.domain([0, d3.max(data, function(d) {if (tunnus == 'osakaal') { return d.osakaal} else { return d.palk}; })]);
+
+    // Select the section we want to apply our changes to
+    var svg = d3.select("body");
+	//svg.transition().duration(750);
+
+    // Make the changes
+    svg.select(".line")   // change the line
+        //.duration(750)
+		.transition().duration(750)
+        .attr("d", valueline(data));
+	svg.select(".y.axis") // change the y axis
+	   .transition().duration(750)
+        .call(d3.axisLeft(y)
+	      .tickFormat(d3.format("d")));
+	svg.select(".y.label")
+	    .transition().duration(750)
+	    .text( function(d) {if (tunnus == 'osakaal') { return "%"} else { return "Palk (€)"}});
+	var dots_new = svg.selectAll(".dots");
+	dots_new
+		.transition().duration(750)
+		.attr("r", 3)		
+        .attr("cx", function(d) { return x(d.date); })		 
+        .attr("cy", function(d) { return y(d[tunnus]); });
+	dots_new		
+        .on("mouseover", function(d) {		
+            div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            div.html((Number(kuu(d.date))+2)/3 + ". kv " + aasta(d.date) + "<br/>"  +  (function(a) {
+			if (tunnus == 'osakaal') { return a.osakaal + "%"} else if (tunnus == 'palk') { return a.palk + "€"} else { return a.par_palk + "€"}})(d))
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })					
+        .on("mouseout", function(d) {		
+            div.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
+    });
+}
+
+</script>
+
+</body>
