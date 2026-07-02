@@ -70,7 +70,7 @@ PS! Siin postituses ma vigade eeldusi ei kontrolli.
 
 Mudeli tegemiseks on vaja andmeid. Selles postituses kasutan Eurostati andmeid 2014. aasta käsimüügiravimite kohta\* ja Euroopa pealinnade ilmainfot\*\*. Sellise seose peale tuli mu kolleeg Andres, kes nägi Eurostati raportis järgmist joonist.
 
-[![](/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/self-reported-use-of-non-prescribed-medicines-by-sex-2014.png)](http://ec.europa.eu/eurostat/statistics-explained/images/3/39/Self-reported_use_of_non-prescribed_medicines_by_sex%2C_2014_%28%25%29.png) Protsent inimestest, kes viimase kahe nädala jooksul on kasutanud käsimüügiravimeid (2014. aasta andmed).
+[![]({{ '/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/self-reported-use-of-non-prescribed-medicines-by-sex-2014.png' | relative_url }})](http://ec.europa.eu/eurostat/statistics-explained/images/3/39/Self-reported_use_of_non-prescribed_medicines_by_sex%2C_2014_%28%25%29.png) Protsent inimestest, kes viimase kahe nädala jooksul on kasutanud käsimüügiravimeid (2014. aasta andmed).
 
 Ta tähendas, et põhjamaid tundub eesotsas rohkem, seega siin võiks olla seos ilmaga. Põhjas on külmem ja selle tõttu kasutatakse ka rohkem käsimüügiravimeid (nt nohu- ja köharohud, valuvaigistid).
 
@@ -92,7 +92,7 @@ Andmestikus on 29 riiki (Türgi ja Küpros jäid välja) ja 7 tunnust:
 
 ## R'i näide ja tulemused
 
-Alustuseks loeme sisse vajalikud [andmed](/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/ilm_ravim.csv) ja paketid. Ja uurime andmeid lähemalt.
+Alustuseks loeme sisse vajalikud [andmed]({{ '/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/ilm_ravim.csv' | relative_url }}) ja paketid. Ja uurime andmeid lähemalt.
 
 ```
 library(dplyr)
@@ -128,7 +128,7 @@ summary(mudel1)
 
 Mudeldamiseks kasutan Ri sisseehitatud funktsiooni `lm()`, mis soovib valemit `Y ~ X1 + X2 + X3 + ...` ja andmetabelit, kust neid tunnuseid otsida. `summary()` funktsioon näitab mudeli kuju. Tabeli viimane veerg näitab, millised tunnused on mudelis statistiliselt olulised (tõenäosus peab olema alla 0.05). Kui tunnus on oluline, siis on rea lõpus \*, \*\* või \*\*\*. Selle mudeli R2 on 44% ja parandatud R2 on 42%.
 
-![](/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/kesk_temperatuur.png)
+![]({{ '/assets/blog/mis-on-regressioon-naide-kasimuugiravimid-vs-ilm/kesk_temperatuur.png' | relative_url }})
 
 Antud mudeli vabaliige on 68,3 ja keskmise temperatuuri kordaja on -2,7. Mudel ütleb, et kui riigi keskmine temperatuur on 0°C, siis 68% inimestest võiksid olla kasutanud käsimüügiravimeid viimase 2 nädala jooksul. Iga kraadi tõus langetab seda 2,7 protsendipunkti võrra. Kui keskmine temperatuur on 10°C, siis hinnanguliselt 41% inimestest on kasutanud käsimüügiravimeid viimase 2 nädala jooksul.
 

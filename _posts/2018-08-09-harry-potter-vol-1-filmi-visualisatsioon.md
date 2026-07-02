@@ -24,7 +24,7 @@ Andmete leidmiseks googeldasin "Harry Potter and the Sorcerer's Stone script" ja
 
 See andmestik on pandud kokku vestluste põhjal ehk andmestikus on ainult tegelased, kel oli rääkiv roll antud stseenis.
 
-![](/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_data.png) 
+![]({{ '/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_data.png' | relative_url }}) 
 
 <p class="image-caption">Käsikiri tabeli kujul.</p>
 
@@ -34,7 +34,7 @@ Kuna kood on Davidi lehel olemas, kuvan siin postituses ainult tulemusi.
 
 Esimene joonis on hierarhilisest klasterdamisest.
 
-![](/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot1.png)
+![]({{ '/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot1.png' | relative_url }})
 
  
 
@@ -44,7 +44,7 @@ Esinevad väga loogilised seosed, kui on tädi Petunia, siis on ka onu Vernon (j
 
 Vaatame lähemalt igat stseeni (v.a stseenid, kus ainult 1 inimene räägib) ja uurime, kes esinevad koos.
 
-![](/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot2.png)
+![]({{ '/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot2.png' | relative_url }})
 
 Tõin esile mõned põnevamad stseenid, mis on fännidele tuttavad. Muideks, esineb vähe stseene, kus Harry ei räägiks.
 
@@ -52,6 +52,6 @@ Näeme, et tädi Petunia, onu Vernon, Dudley esinevad ainult filmi alguses. Hagr
 
 Viimasena vaatame klassikalist võrgustiku joonist. Iga pallike on üks tegelane ja joone paksus näitab, kui palju on  ühiseid stseene nendel tegelastel.
 
-![](/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot3.png)
+![]({{ '/assets/blog/harry-potter-vol-1-filmi-visualisatsioon/Potter_plot3.png' | relative_url }})
 
 Davidi Love Actually joonisel ei ole kellelgi nii tugevad seosed kui Harryl, Ronil ja Hermionel. Võib öelda, et see on väga Harry-Roni-Hermione põhine film.

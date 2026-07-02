@@ -42,9 +42,9 @@ Iga punkt läbib raja vastavalt tegelikule raja läbimise ajale. Arvutiekraanil 
 
 Paneme osalejad joonele. START!
 
-<iframe id="joonis" src="/assets/blog/jaljendame-tartu-maratoni-osalejaid/rada.html" width="100%" height="650px" frameborder="0" scrolling="no"></iframe>
+<iframe id="joonis" src="{{ '/assets/blog/jaljendame-tartu-maratoni-osalejaid/rada.html' | relative_url }}" width="100%" height="650px" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/jaljendame-tartu-maratoni-osalejaid/rada.html))
+([täisekraani versioon]({{ '/assets/blog/jaljendame-tartu-maratoni-osalejaid/rada.html' | relative_url }}))
 
 NB! See on osalejate jäljendamine ja ei näita tegelikku pilti, sest ei ole teada inimeste tegelikke kiiruseid rajal. Siin on eeldatud, et kõik osalejad läbisid raja stabiilse kiirusega.
 

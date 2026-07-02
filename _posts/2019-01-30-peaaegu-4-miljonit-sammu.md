@@ -48,7 +48,7 @@ Palju nendest hüpoteesidest on pidasid andmetel paika? Vaatame igat hüpoteesi 
 
 #### **Jaotus on sabaga**
 
-![](/assets/blog/peaaegu-4-miljonit-sammu/Jaotus1.png)
+![]({{ '/assets/blog/peaaegu-4-miljonit-sammu/Jaotus1.png' | relative_url }})
 
  
 
@@ -58,7 +58,7 @@ Jaotus on küll sabaga. Üle 20 000 sammu oli ainult 9 päeval.
 
 #### **Tuhanded: 5 ja 10 tuhat on rohkem populaarsed (8, 9 vähem populaarsed)**
 
-![](/assets/blog/peaaegu-4-miljonit-sammu/tuhat.png)
+![]({{ '/assets/blog/peaaegu-4-miljonit-sammu/tuhat.png' | relative_url }})
 
 Sellelt jooniselt jäid välja 6 päeva, mis olid alla 5000 sammu, ja 7 päeva, mis olid üle 21 tuhande.
 
@@ -68,7 +68,7 @@ Sellelt jooniselt jäid välja 6 päeva, mis olid alla 5000 sammu, ja 7 päeva, 
 
 #### **Sajad: 0 ja 1 on populaarsed, 7, 8 ja 9 vähe populaarsed**
 
-![](/assets/blog/peaaegu-4-miljonit-sammu/sada.png)
+![]({{ '/assets/blog/peaaegu-4-miljonit-sammu/sada.png' | relative_url }})
 
 See hüpotees peab paika.
 
@@ -76,7 +76,7 @@ See hüpotees peab paika.
 
 #### **Kümned: 0, 1, 2 on rohkem ja 7, 8, 9 vähem populaarsed**
 
-![](/assets/blog/peaaegu-4-miljonit-sammu/kymme.png)
+![]({{ '/assets/blog/peaaegu-4-miljonit-sammu/kymme.png' | relative_url }})
 
 Wow. 1 on hoopis kõige vähem populaarne. 0 on küll populaarsem kui 7, 8 ja 9, aga mitte kõige populaarsem.
 
@@ -84,7 +84,7 @@ Wow. 1 on hoopis kõige vähem populaarne. 0 on küll populaarsem kui 7, 8 ja 9,
 
 #### **Viimane number: kõiki numbreid esineb võrdselt**
 
-![](/assets/blog/peaaegu-4-miljonit-sammu/yks.png)
+![]({{ '/assets/blog/peaaegu-4-miljonit-sammu/yks.png' | relative_url }})
 
 Eee... See ka ei pea paika.
 

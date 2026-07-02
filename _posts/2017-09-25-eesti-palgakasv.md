@@ -26,9 +26,9 @@ Võtsin samad andmed Statistikaametist, vaatasin ka tarbijahinnaindeksit, et arv
 
 Tulemus on siin: 
 
-<iframe id="joonis" src="/assets/blog/eesti-palgakasv/palk.html" width="100%" height="550" frameborder="0" scrolling="no"></iframe>
+<iframe id="joonis" src="{{ '/assets/blog/eesti-palgakasv/palk.html' | relative_url }}" width="100%" height="550" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/eesti-palgakasv/palk.html))
+([täisekraani versioon]({{ '/assets/blog/eesti-palgakasv/palk.html' | relative_url }}))
 
 2002\. aasta I kvartalis oli Eesti keskmine palk 366€, mis on väärtuselt sama kui 584€ täna (tarbijahinnaindeksiga kohandatud palga joon), II kvartalis 406€ (tänane väärtus 639€). 2017. aasta II kvartalis oli Eesti keskmine palk 1242€.
 

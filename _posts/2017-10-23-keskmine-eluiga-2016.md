@@ -25,7 +25,7 @@ Sellelt jooniselt on aru saada, et rikkamates riikides on keskmiselt kõrgem ood
 
 Päiksekiired on värvitud piirkonna maailmajao järgi. Roheline Euroopa on pigem rikkamate riikide hulgas ja kollane Aafrika pigem vaesemate hulgas.
 
-Kuna pilt on kirju, siis seda on parem vaadata täisekraani versioonis ([vaata siit](/assets/blog/keskmine-eluiga-2016/life_expectancy.html)).
+Kuna pilt on kirju, siis seda on parem vaadata täisekraani versioonis ([vaata siit]({{ '/assets/blog/keskmine-eluiga-2016/life_expectancy.html' | relative_url }})).
 
 PS! Joonis on inglise keeles. Kui pilt on liiga suur või väike, siis kõige lihtsam on kasutada brauseri zoomi.
 

@@ -28,15 +28,15 @@ Toon ühe näite võimalikust kasutamisviisist. Näites kasutatud ettevõte on v
 
 Seega sarnased ettevõtted on ettevõtted, mis töötavad samas EMTAK2 valdkonnas, asuvad Hiiu või Saare maakonnas ja 2019. aasta käive oli enam-vähem sama suur kui Padu Hotellil.
 
-![](/assets/blog/rakendus-mina-vs-sarnased-ettevotted/valikud.png)
+![]({{ '/assets/blog/rakendus-mina-vs-sarnased-ettevotted/valikud.png' | relative_url }})
 
 Rakendus leiab, et nendele kriteeriumitele vastab 9 ettevõtet.
 
-![](/assets/blog/rakendus-mina-vs-sarnased-ettevotted/sarnased.png)
+![]({{ '/assets/blog/rakendus-mina-vs-sarnased-ettevotted/sarnased.png' | relative_url }})
 
 Nüüd saan võrrelda, kas nende ettevõtete keskmine käive on 2020. aastal liikunud minu käibe sarnaselt.
 
-![](/assets/blog/rakendus-mina-vs-sarnased-ettevotted/Kaive.png)
+![]({{ '/assets/blog/rakendus-mina-vs-sarnased-ettevotted/Kaive.png' | relative_url }})
 
 Nagu näha, siis kõik ettevõtted on sessoonsed, suvel on palju rohkem käivet kui teistel aastaaegadel. Kõigil oli 2020. aasta kevad eelmistest aastatest raskem. Viimasel aastal on ettevõtete suvekäive sarnane; teiste ettevõtete käive on langenud, Padu Hotelli käive on jäänud eelmiste suvede sarnaseks. Seega võib arvata, et koroona mõjutas Padu Hotelli suve vähem kui sarnastel ettevõtetel.
 

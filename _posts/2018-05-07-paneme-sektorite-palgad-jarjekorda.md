@@ -18,9 +18,9 @@ Tegin joonise, mis kujutab viimase 10 aasta sektorite järjekorda ja selle muutu
 
 Hiirega joonisele minnes muudavad valitud sektori nimi ja joon värvi, et oleks lihtsam huvipakkuvate sektorite muutust jälgida. Katseta!
 
-<iframe id="joonis" src="/assets/blog/paneme-sektorite-palgad-jarjekorda/sektor_small.html" width="100%" height="420px" frameborder="0" scrolling="no"></iframe>
+<iframe id="joonis" src="{{ '/assets/blog/paneme-sektorite-palgad-jarjekorda/sektor_small.html' | relative_url }}" width="100%" height="420px" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/paneme-sektorite-palgad-jarjekorda/sektor.html))
+([täisekraani versioon]({{ '/assets/blog/paneme-sektorite-palgad-jarjekorda/sektor.html' | relative_url }}))
 
 Teadlikult olen blogiversioonis nimede lõpud ära lõiganud, täisekraani versioonis on nimed pikalt välja kirjutatud.
 

@@ -23,7 +23,7 @@ PS! Toon näited Postimehest ja ERRist lihtsalt selle pärast, et jälgin neid k
 
 ## [Kes on meie armastatuim president?](https://leht.postimees.ee/4418779/kes-on-meie-armastatuim-president) (23.02.18 Postimees)
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/Preview-ORIGINAL-54889-768x1024.jpg)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/Preview-ORIGINAL-54889-768x1024.jpg' | relative_url }})
 
 See joonis on trükitud lehest. Enne kui vigadest räägin, toon välja paar asja, mis mulle selle joonise juures meeldivad.
 
@@ -33,7 +33,7 @@ Ma ei saa aru, miks on valitud selline disain. Erinevate alamrühmade eelistuste
 
 Minu versioon on järgmine.
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/uus_-datawrapper_paint-1024x930.png)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/uus_-datawrapper_paint-1024x930.png' | relative_url }})
 
 Kellele siis meeldib Lennart Meri kõige rohkem? Visuaalselt jään mina 2 grupi vahele - Reformierakonna või muu erakonna toetajad. Lõpptulemuse jaoks pean võrdlema ainult kahe numbrit. Õige vastus on Reformierakonna toetajad (78,4%).
 
@@ -41,7 +41,7 @@ Kellele siis meeldib Lennart Meri kõige rohkem? Visuaalselt jään mina 2 grupi
 
 ## [Metsa kasvab hoogsamalt, kui raiutakse](https://majandus24.postimees.ee/4469327/metsa-kasvab-hoogsamalt-kui-raiutakse) (13.03.18 Postimees)
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/7777795t1h52e5.jpg)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/7777795t1h52e5.jpg' | relative_url }})
 
 Järjekordne pilkupüüdev joonis. Väga leidlik on näidata erinevate aastate metsamaa pindala kuuskede kõrgustena. Mind häirib, et 2015 ja 2017 aasta kuused on teineteisest kaugemal kui 2000 ja 2005 aasta kuused. Kuuskede kaugus võiks olla seoses nende aastate omavahelise ajalise kaugusega.
 
@@ -49,7 +49,7 @@ Lähme alumiste jooniste juurde. Kuna 2001 aasta ring on nii palju väiksem kui 
 
 Joongraafiku suurimaks miinuseks on see, et kõik vaatlused on võrdsetel kaugustel. Lähemalt vaadates näeme, et esimesed punktid on viie-aastase ja viimased ühe-aastase sammuga. Lisaks, graafiku y-telg ei hakka nullist, mille tõttu tundub, et raiemaht on pool juurdekasvu. (PS! Joongraafikud ei peagi algama nullist.)
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/parandus-1024x461.png)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/parandus-1024x461.png' | relative_url }})
 
 Siin on kaks võimalust, kuidas joongraafikut selgemalt esitada.  Üks võimalus on jätta joonis samaks, aga 2010 ja 2015 (või 2015 ja 2016) vahelt joon ära kustutada. See annab märku, et midagi on muutunud. Teine võimalus on teha uus joonis, kus x-telje punktide vahe on ajaga vastavuses. Kui alustame y-teljega nullist, siis ei tundu raie maht nii palju väiksem juurdekasvust. Samas teine lahendus võib olla veidi igav.
 
@@ -57,7 +57,7 @@ Siin on kaks võimalust, kuidas joongraafikut selgemalt esitada.  Üks võimalu
 
 ## [Reformierakonna toetusest on Kaja Kallase efekt kadunud](https://www.err.ee/856830/reformierakonna-toetusest-on-kaja-kallase-efekt-kadunud) (28.08.19 ERR)
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/540153hf0cft29.png)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/540153hf0cft29.png' | relative_url }})
 
 See on artikli pilt _online_'is. Eesmärgiks on küll pilgu tõmbamine, kuid siiski võiks see korrektne olla. Esiteks, punktid asuvad üksteisest samal kaugusel, kuigi juuli andmed on puudu. Teiseks, muutust aprillist maini (3%) näidatakse horisontaalse joonena. Kolmandaks, miks muudab joon värvi?!
 
@@ -71,7 +71,7 @@ Ma olen sel aastal näinud ka mitut head joonist, aga ma toon siin välja ainult
 
 Sellel artiklil on _online'_is ja trükitud lehes erinevad joonised. Hea joonis tuleb just trükitud lehest.
 
-![](/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/graafik_leht.png)
+![]({{ '/assets/blog/3-graafikut-eesti-meediast-mis-mulle-ei-meeldinud/graafik_leht.png' | relative_url }})
 
 Siin on mitu aspekti, miks see mulle meeldib.
 

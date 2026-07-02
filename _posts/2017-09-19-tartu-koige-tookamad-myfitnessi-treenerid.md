@@ -22,9 +22,9 @@ Kuna kõik trennid ei mahu graafikule originaalnimedega, on trennid enamasti koo
 
 Hiirega treeneri peale minnes näeb palju trenne treeneril on olnud ja kuidas need jagunevad. Hiirega trenni nime peale minnes näeme, kes treeneritest seda on andnud ja mis trennid täpselt selle nime alla koondatud on.
 
-<iframe src="/assets/blog/tartu-koige-tookamad-myfitnessi-treenerid/myfit_loom.html" width="100%" height="600px" frameborder="0" scrolling="no"></iframe>
+<iframe src="{{ '/assets/blog/tartu-koige-tookamad-myfitnessi-treenerid/myfit_loom.html' | relative_url }}" width="100%" height="600px" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/tartu-koige-tookamad-myfitnessi-treenerid/myfit_loom.html))
+([täisekraani versioon]({{ '/assets/blog/tartu-koige-tookamad-myfitnessi-treenerid/myfit_loom.html' | relative_url }}))
 
 <div class="post-sources">
   <div class="post-source-title">Andmed:</div>

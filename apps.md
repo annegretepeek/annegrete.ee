@@ -34,8 +34,8 @@ permalink: /rakendused/
 
 
   <article class="app-card">
-    <a href="/wheel/">
-      <img src="/assets/blog/teeme-head/wheel/img/wheel_preview.jpg" alt="Wheel of Good Deeds">
+    <a href="{{ '/wheel/' | relative_url }}">
+      <img src="{{ '/assets/blog/teeme-head/wheel/img/wheel_preview.jpg' | relative_url }}" alt="Wheel of Good Deeds">
     </a>
     <h3>Wheel of Good Deeds</h3>
     <p>Loosiratas väikeste heategudega, mis aitab valida ühe lihtsa viisi kellegi päeva paremaks teha.</p>

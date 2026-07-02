@@ -18,7 +18,7 @@ See oli üritus, mida ma olin aasta aega oodanud. Eelmine mai otsustasin, et 201
 
 Esimeseks ettekandeks maha istudes nägin, et saalis on tuttavaid nägusid. Saalis olid mitmed inimesed, kelle blogisid ma jälgin, arvamust kuulan, näidetest õpin ja töid imetlen. Nad on andmete visualiseerimise spetsialistid.
 
-![](/assets/blog/openvis-conf-minu-lemmik-konverents/IMG_20180514_091119-1024x768.jpg) _Peakorraldaja slaid: Esimeses sõnavõtus sai Eesti ka ära mainimist._
+![]({{ '/assets/blog/openvis-conf-minu-lemmik-konverents/IMG_20180514_091119-1024x768.jpg' | relative_url }}) _Peakorraldaja slaid: Esimeses sõnavõtus sai Eesti ka ära mainimist._
 
 ### Palju inspiratsiooni
 
@@ -26,7 +26,7 @@ Konverents oli kahepäevane ja sisaldas kokku 20 ettekannet (+ kolmandal päeval
 
 Kõige põnevam ettekanne võis olla Maarten Lambrechtsi "Xenographics". See oli ettekanne, mis tutvustas väga palju "imelikke" ehk mitteklassikalisi andmete visualiseerimise näiteid. Nimelt Maarten on oma lehele [Xenographics](https://xeno.graphics/) kokku kogunud näiteid, mis võiksid olla inspiratsiooniks uute asjadega katsetamiseks. See on kindlasti põnev lehekülg kõigile visualiseerimise huvilistele.
 
-![](/assets/blog/openvis-conf-minu-lemmik-konverents/xenograph-1024x616.jpg) _Ekraanitõmmis [Xenographics](https://xeno.graphics/) lehelt_
+![]({{ '/assets/blog/openvis-conf-minu-lemmik-konverents/xenograph-1024x616.jpg' | relative_url }}) _Ekraanitõmmis [Xenographics](https://xeno.graphics/) lehelt_
 
 Steven Franconeri rääkis oma tööst, mille eesmärk on aru saada, kuidas inimesed tajuvad visualisatsioone. Hea oli teada saada, et enamasti joonistest arusaamiseks läheb aega ning inimesed ei saa neist üheselt aru. Kui sa proovid joonisel rõhutada konkreetset sündmust või mõtet, pane joonisele selle seletus. Nii jõuab idee kiiremini kohale ja kõik saavad sellest aru.
 
@@ -40,7 +40,7 @@ Mitmetel suurtel ajalehtedel nagu näiteks New York Times ja Washington Post on 
 
 Osadel ajalehtedel on andmete visualiseerimiseks eraldi aeg ja koht, näiteks üks-kaks lehekülge nädalavahetuse väljaandes. Need visualisatsioonid on tihti keerulisemad ja vajavad rohkem süvenemist, vahel on ka rohkem kunstilised. Häid näiteid tõi [Frederica Frapane](https://www.behance.net/FedericaFragapane), kes teeb visualisatsioone nädalavahetuse trükile "La Lettura".
 
-![](/assets/blog/openvis-conf-minu-lemmik-konverents/lalettura-1024x510.jpg) _Näide Frederica [tööst](https://www.behance.net/gallery/31279439/Carbon-Dioxide-Emissions)_
+![]({{ '/assets/blog/openvis-conf-minu-lemmik-konverents/lalettura-1024x510.jpg' | relative_url }}) _Näide Frederica [tööst](https://www.behance.net/gallery/31279439/Carbon-Dioxide-Emissions)_
 
 Ma ei näe põhjust, miks ei võiks olla ka Eesti ajalehtedes (näiteks Arteris) andmete visualiseerimise nurk.
 

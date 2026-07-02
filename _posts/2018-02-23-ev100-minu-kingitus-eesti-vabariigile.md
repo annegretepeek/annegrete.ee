@@ -19,9 +19,9 @@ Minu kingituseks sulle on sini-must-valge lilleõis, kus on 100 õielehte. Iga �
 
  
 
-<iframe id="joonis" src="/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.html" width="100%" height="700px" frameborder="0" scrolling="no"></iframe>
+<iframe id="joonis" src="{{ '/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.html' | relative_url }}" width="100%" height="700px" frameborder="0" scrolling="no"></iframe>
 
-  ([täisekraani versioon](/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.html))
+  ([täisekraani versioon]({{ '/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.html' | relative_url }}))
 
 See lill on sarnane oktoobris [kujutatud päiksega](/blog/2017/10/keskmine-eluiga-2016/). Kui seal vaatasime ühel aastal mitut riiki, siis nüüd vaatame ühe riigi mitut aastat.
 

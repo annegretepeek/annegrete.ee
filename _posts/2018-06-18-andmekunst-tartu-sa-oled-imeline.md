@@ -27,7 +27,7 @@ Andmete visualiseerimise pro Stephen Few on ka kirjutanud nende erinevusest [art
 
 Selle pildi jaoks sain inspiratsiooni Oliver O'Brieni Londoni teosest, kus London on kuvatud ainult majadega.
 
-[![Oliver O'Brien London North/South](/assets/blog/andmekunst-tartu-sa-oled-imeline/london-north-south.png)](http://shop.oobrien.com/london-north-south/) _Oliver O'Brien - London North/South_
+[![Oliver O'Brien London North/South]({{ '/assets/blog/andmekunst-tartu-sa-oled-imeline/london-north-south.png' | relative_url }})](http://shop.oobrien.com/london-north-south/) _Oliver O'Brien - London North/South_
 
 Otsustasin, et ma saan sarnase joonise teha oma kodulinna Tartu kohta. Tartu on üks mu lemmikteemasid.
 
@@ -37,7 +37,7 @@ Oma töö jaoks võtsin [OpenStreetMapi](https://www.openstreetmap.org/) andmete
 
 Ma panin joonisele ainult majad, täpselt nagu Oliver.
 
-[![Tartu](/assets/blog/andmekunst-tartu-sa-oled-imeline/Tartu_1920x1080.png)](/assets/blog/andmekunst-tartu-sa-oled-imeline/Tartu_1920x1080.png) _Annegrete Peek - Imeline Tartu_
+[![Tartu]({{ '/assets/blog/andmekunst-tartu-sa-oled-imeline/Tartu_1920x1080.png' | relative_url }})]({{ '/assets/blog/andmekunst-tartu-sa-oled-imeline/Tartu_1920x1080.png' | relative_url }}) _Annegrete Peek - Imeline Tartu_
 
 Nagu näha värvisin Tartu majad nende asukoha järgi, vastavalt kummal pool jõge need asuvad. Ida-Tartu on lilla ja Lääne-Tartu kollane. Muide, joonisele vajutamisel avaneb pilt suuremalt.
 

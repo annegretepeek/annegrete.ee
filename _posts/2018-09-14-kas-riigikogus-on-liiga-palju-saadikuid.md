@@ -12,7 +12,8 @@ image: "/assets/blog/kas-riigikogus-on-liiga-palju-saadikuid/parlament.png"
 
 Pärast Kaja Kallase [ütlemist](https://www.err.ee/860200/kaja-kallas-iga-riigikogu-liige-voiks-saada-endale-abi), et iga saadik võiks saada endale abi, tekkis sõpradega dialoog, et kas Riigikogus on liiga palju inimesi. Kas 101 saadikut on liiga palju väikse Eesti jaoks?
 
-Mina tahan näha andmeid, kas teistes Euroopa riikides on sama palju saadikuid. Mitut inimest iga saadik esindab? Esimese googeldamise peale leidsin järgmise kaardi. ![null](/assets/blog/kas-riigikogus-on-liiga-palju-saadikuid/parliament-per-capita.jpg)
+Mina tahan näha andmeid, kas teistes Euroopa riikides on sama palju saadikuid. Mitut inimest iga saadik esindab? Esimese googeldamise peale leidsin järgmise kaardi. 
+![null]({{ '/assets/blog/kas-riigikogus-on-liiga-palju-saadikuid/parliament-per-capita.jpg' | relative_url }})
 
 Eestis on tõesti palju saadikuid, aga Eestil ei ole kõige suurem arv.
 

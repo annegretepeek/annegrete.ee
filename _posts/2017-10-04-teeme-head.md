@@ -18,6 +18,6 @@ Kuid kust? Mida ma peaksin täna selleks tegema?
 
 Maailma parandamine algab pisiasjadest, mis parandavad ümbruskonda ja rõõmustavad lähedal olevaid inimesi.
 
-Vajuta [siia](/wheel/), et minna loosiratta juurde.
+Vajuta [siia]({{ '/wheel/' | relative_url }}), et minna loosiratta juurde.
 
 PS! Loosiratas on inglise keeles.

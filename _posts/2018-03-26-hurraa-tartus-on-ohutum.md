@@ -17,9 +17,9 @@ Tartu on minu linn. Kui tegelen andmetega, kus Tartu on sees, siis vaatan seda h
 
 PPA avaldab süütegude [andmeid](https://www.politsei.ee/et/juhend/politseitoeoega-seotud-avaandmed). Ma jagasin kõik süüteod seitsmeks grupiks. Lähemalt uurisin, kuidas Tartu süüteod erinevad nii Eesti keskmisest kui ka Eesti linnade keskmisest. Ausama pildi saamiseks vaatan süütegusid 1000 elaniku kohta.
 
-<iframe src="/assets/blog/hurraa-tartus-on-ohutum/index17.html" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
+<iframe src="{{ '/assets/blog/hurraa-tartus-on-ohutum/index17.html' | relative_url }}" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/hurraa-tartus-on-ohutum/index17.html))
+([täisekraani versioon]({{ '/assets/blog/hurraa-tartus-on-ohutum/index17.html' | relative_url }}))
 
 Näeme, et Tartus (roheline) on pigem ohutu, süütegusid on vähem või sama palju kui Eestis keskmiselt. Ja võrreldes linnadega on ka üldiselt keskmine või keskmisest parem tulemus, välja arvatud kiiruseületamine(!).
 
@@ -31,9 +31,9 @@ Muideks, Eesti kiiruseületamisest kirjutasin [ühe postituse](https://opendata.
 
 Huvitav, et Tartus nii palju kihutatakse. Kas see on 2017. aasta eripära või oli ka nii 2016. aastal?
 
-<iframe src="/assets/blog/hurraa-tartus-on-ohutum/index16.html" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
+<iframe src="{{ '/assets/blog/hurraa-tartus-on-ohutum/index16.html' | relative_url }}" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
 
-([täisekraani versioon](/assets/blog/hurraa-tartus-on-ohutum/index16.html))
+([täisekraani versioon]({{ '/assets/blog/hurraa-tartus-on-ohutum/index16.html' | relative_url }}))
 
 Kahe aasta võrdlusest võib välja lugeda, et süütegusid on pigem vähemaks jäänud. Huvitav, et avaliku korra rikkumisi oli 2016. aastal Tartus rohkem kui mujal. Samas kiiruseületamisi oli Tartus vähem kui keskmiselt Eesti linnades, seega vist on 2017. aasta kuidagi eriline.
 

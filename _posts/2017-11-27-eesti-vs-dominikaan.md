@@ -49,7 +49,7 @@ Muideks, mõlemas riigis umbes kolmandik elanikest elab pealinna piirkonnas.
 
 Järgnevalt jooniselt näeb 2016. aasta Tallinnas ja Punta Canas (lennujaam, kuhu lendasin) mõõdetud temperatuure.
 
-<iframe id="joonis" src="/assets/blog/eesti-vs-dominikaan/index_ilm.html" width="100%" height="650px" frameborder="0" scrolling="no"></iframe>
+<iframe id="joonis" src="{{ '/assets/blog/eesti-vs-dominikaan/index_ilm.html' | relative_url }}" width="100%" height="650px" frameborder="0" scrolling="no"></iframe>
 
 Jaanuar on üleval, aeg liigub kella liikumise suunas, detsember on taas üleval. Iga päeva kohta on tõmmatud 2 joont. Sisemine joon on selle päeva temperatuur Eestis ja välimine joon on temperatuur Dominikaanis. Joone sisemine ja välimine äär näitab vastavalt päeva minimum ja maksimum kraadi, joon on värvitud päeva keskmise temperatuuri järgi.
 
@@ -75,7 +75,7 @@ Dominikaan on Kariibide populaarseim turismisihtriik. Me nägime, et tänu selle
 
 Kummagi riigi ajalugu on keeruline. Mõlemad on näinud võõrvõimu, orjust, sõdu ja vabaks saamist. Järgmisel joonisel on näidatud mõlema riigi mõned tähtsamad sündmused.
 
-[![](/assets/blog/eesti-vs-dominikaan/ajalugu.png)](/assets/blog/eesti-vs-dominikaan/ajalugu.png)  
+[![]({{ '/assets/blog/eesti-vs-dominikaan/ajalugu.png' | relative_url }})]({{ '/assets/blog/eesti-vs-dominikaan/ajalugu.png' | relative_url }})  
 
 **Kokkuvõtteks**, riigid on küllalt erinevad. Kui soovid minna Kariibidele, siis Dominikaan on hea valik.
 
