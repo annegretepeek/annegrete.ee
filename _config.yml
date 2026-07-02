@@ -1,7 +1,7 @@
 title: Annegrete
 description: Personal website and blog
 url: "https://annegretepeek.github.io"
-baseurl: ""
+baseurl: "/annegrete.ee"
 
 markdown: kramdown
 permalink: /blog/:year/:month/:title/
