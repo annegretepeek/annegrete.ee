@@ -168,6 +168,8 @@ hide_header: true
 </style>
 
 <script>
+  var wheelImageBaseUrl = "{{ '/assets/blog/teeme-head/wheel/img/' | relative_url }}";
+
   var margin = {left: 20, top: 100, right: 20, bottom: 100},
     width = 700 - margin.left - margin.right,
     height = 750 - margin.top - margin.bottom;
@@ -306,7 +308,7 @@ hide_header: true
       ticker.stop();
       var result = selectedSlice(currentRotation);
       document.getElementById("results").innerHTML = result.label + "!";
-      document.getElementById("motivationalImage").innerHTML = "<img id='resultIMG' src='/assets/blog/teeme-head/wheel/img/" + result.image + "' alt=''>";
+      document.getElementById("motivationalImage").innerHTML = "<img id='resultIMG' src='" + wheelImageBaseUrl + result.image + "' alt=''>";
       document.getElementById("motivationalText").innerHTML = result.motivation;
       d3.select("#datahack").style("display", "block");
     }, duration + 150);

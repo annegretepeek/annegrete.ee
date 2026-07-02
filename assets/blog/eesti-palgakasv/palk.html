@@ -1,3 +1,6 @@
+---
+permalink: /assets/blog/eesti-palgakasv/palk.html
+---
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style> /* set the CSS */
@@ -85,7 +88,7 @@ var svg = d3.select("body").append("svg")
     .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.csv("/assets/blog/eesti-palgakasv/data.csv", function(error, data) {
+d3.csv("{{ '/assets/blog/eesti-palgakasv/data.csv' | relative_url }}", function(error, data) {
   if (error) throw error;
 
   // format the data
@@ -149,7 +152,7 @@ d3.csv("/assets/blog/eesti-palgakasv/data.csv", function(error, data) {
 function updateData(tunnus) {
 
     // Get the data again
-    d3.csv("/assets/blog/eesti-palgakasv/data.csv", function(error, data) {
+    d3.csv("{{ '/assets/blog/eesti-palgakasv/data.csv' | relative_url }}", function(error, data) {
         data.forEach(function(d) {
                 d.date = parseTime(d.date);
                 d.palk = +d[tunnus];

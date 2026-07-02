@@ -1,3 +1,6 @@
+---
+permalink: /assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.html
+---
 <!DOCTYPE html>
 <meta charset="utf-8">
 <!-- load the d3.js library -->    	
@@ -146,7 +149,7 @@
 	////////////////////////////// Draw bars //////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////
 	
-	d3.csv("/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.csv", function(error, eesti) {
+	d3.csv("{{ '/assets/blog/ev100-minu-kingitus-eesti-vabariigile/eluiga.csv' | relative_url }}", function(error, eesti) {
 		if (error) throw error;
 		
 		eesti.forEach(function(d) {
