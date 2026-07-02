@@ -9,7 +9,7 @@ permalink: /minust/
 ![Annegrete Molloka](/assets/images/about/me-cropped.png){: .page-image }
 *Foto: Ave Aviste* 
 
-Olen andmeteadlane. Hariduselt olen statistik, hetkel töötan [TÜ CITISe tiimis](http://www.citis.ee/) ja varasem töökogemus on finatsvaldkonnast. Vaata ka minu [LinkedIni kontot](https://www.linkedin.com/in/annegrete-molloka-20b9aba7/).
+Olen andmeteadlane. Hariduselt olen statistik, hetkel töötan [TÜ CITISe tiimis](http://www.citis.ut.ee/) ja varasem töökogemus on finatsvaldkonnast. Vaata ka minu [LinkedIni kontot](https://www.linkedin.com/in/annegrete-molloka-20b9aba7/).
 
 Lisaks palgatööle tegelen ka andmeteaduse alase konsultatsiooniga, andmepõhiste kalkulaatorite ja töölaudade ehitamisega. Põnevamad projektid-analüüsid, millega olen tegelenud:
 
