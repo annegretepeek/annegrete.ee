@@ -7,7 +7,7 @@
     </h2>
 
     <p class="post-date">
-        {{ include.post.date | date: "%-d. %B %Y" }}
+        {{ include.post.date | date: "%d.%m.%Y" }}
     </p>
 
     <div class="post-summary-body{% unless include.post.image %} no-image{% endunless %}">
