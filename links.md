@@ -11,7 +11,7 @@ permalink: /kasulikud-lingid/
 Siin on mõned lingid, kus saab visualiseerimiseks inspiratsiooni ja
 tutvuda uute võimalustega.
 
-- [Data Viz Project](http://datavizproject.com/)
+- [Data Viz Project](https://datavizproject.com/)
 - [The Data Visualisation
   Catalogue](https://datavizcatalogue.com/)
 - [Xenographics - Weird but (sometimes) useful
@@ -25,7 +25,7 @@ Alati ei ole aega d3.js, R või muu vahendiga jooniseid teha. Siin on
 mõned *online*-rakendused, mis aitavad nendes olukordades.
 
 - [Datawrapper](https://www.datawrapper.de/)
-- [RAWGraphs](http://rawgraphs.io/)
+- [RAWGraphs](https://rawgraphs.io/)
 - [ChartAccent](https://chartaccent.github.io/)
 
  
