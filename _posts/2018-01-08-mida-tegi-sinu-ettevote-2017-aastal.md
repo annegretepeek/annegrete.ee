@@ -30,7 +30,7 @@ Seda ma tegingi.
 
 ## Ettevõtete ajaloo võrdlemine
 
-Tutvustan uut rakendust [Eesti ettevõtete ajaloo võrdlus](https://annegretepeek.shinyapps.io/EMTA_compare/).
+Tutvustan uut rakendust [Eesti ettevõtete ajaloo võrdlus](https://annegretemolloka.shinyapps.io/EMTA_compare/).
 
 Siin saab võrrelda ettevõtteid visuaalselt. Näitajad on samad, kuid seekord vaatame korraga kõiki meile teadaolevaid kvartaleid.
 

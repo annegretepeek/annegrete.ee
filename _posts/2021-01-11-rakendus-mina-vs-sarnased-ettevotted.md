@@ -16,7 +16,7 @@ image: "/assets/blog/rakendus-mina-vs-sarnased-ettevotted/MISA.png"
 
 Üle pika aja on jälle millestki kirjutada. Tegin EMTA avaandmetest veel ühe rakenduse.
 
-Rakenduses saab valida ettevõtte, otsida talle sarnaseid ettevõtteid ja võrrelda nende tulemusi. Rakendus asub [siin](https://annegretepeek.shinyapps.io/MISA/).
+Rakenduses saab valida ettevõtte, otsida talle sarnaseid ettevõtteid ja võrrelda nende tulemusi. Rakendus asub [siin](https://annegretemolloka.shinyapps.io/MISA/).
 
  
 
@@ -48,9 +48,9 @@ Lisaks käibele saab võrrelda ka muutusi maksudes, töötajate arvus ja makse/k
 
 Selles rakenduses saab valida äriühingutest ettevõtte, mis deklareeris käivet/töötajaid detsember 2019 - november 2020 (2020 I - IV kvartal [EMTA andmetes](https://www.emta.ee/eraklient/amet-uudised-ja-kontakt/uudised-pressiinfo-statistika/statistika-ja-avaandmed#tasutud-maksud)). EMTA andmetele on lisatud [Statistikaametist](https://www.stat.ee/et/esita-andmeid/andmete-esitamisest/ettevotete-uuringud/majandusuksuste-klassifitseerimise-abiinfo) (01.12.2020 seis*) ettevõtete sektor ja EMTAK2 tase. Kui Statistikameti andmetes ei ole seda ettevõtet, siis EMTAK2 on puudu ja sektor on võetud EMTA andmetest. Valitud ettevõttele saab otsida sarnaseid ettevõtteid. Sarnasust saab defineerida sektori, EMTAK2 taseme, maakonna, aastase käibe ja/või aasta keskmise töötajate arvu järgi. Käibe ja töötajate arvu korral saab valida ka võrreldava aasta. Rakendus annab sarnaste ettevõtete nimed ning joonistab graafikud valitud ettevõtte ja sarnaste ettevõtete keskmistest näitajatest.
 
-Kui soovitakse võrrelda üksikettevõtteid (ehk igal ettevõttel on oma joon), siis soovitan nende ettevõtte nimed lüüa [ajaloo võrdluse rakendusse](https://annegretepeek.shinyapps.io/EMTA_compare/).
+Kui soovitakse võrrelda üksikettevõtteid (ehk igal ettevõttel on oma joon), siis soovitan nende ettevõtte nimed lüüa [ajaloo võrdluse rakendusse](https://annegretemolloka.shinyapps.io/EMTA_compare/).
 
-Rakenduse link: [https://annegretepeek.shinyapps.io/MISA/](https://annegretepeek.shinyapps.io/MISA/)
+Rakenduse link: [https://annegretemolloka.shinyapps.io/MISA/](https://annegretemolloka.shinyapps.io/MISA/)
 
 Rakenduse koodi Github link: [https://github.com/annegretepeek/MISA](https://github.com/annegretepeek/MISA)
 

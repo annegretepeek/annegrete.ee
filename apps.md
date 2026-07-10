@@ -9,7 +9,7 @@ permalink: /rakendused/
 <div class="app-grid">
 
   <article class="app-card">
-    <a href="https://annegretepeek.shinyapps.io/MISA/" target="_blank" rel="noopener noreferrer">
+    <a href="https://annegretemolloka.shinyapps.io/MISA/" target="_blank" rel="noopener noreferrer">
       <img src="{{ '/assets/images/apps/MISA-700x342.png' | relative_url }}" alt="Ettevõtted: mina vs sarnased">
     </a>
     <h3>Ettevõtted: mina vs sarnased</h3>
@@ -17,7 +17,7 @@ permalink: /rakendused/
   </article>
 
   <article class="app-card">
-    <a href="https://annegretepeek.shinyapps.io/EMTA_compare/" target="_blank" rel="noopener noreferrer">
+    <a href="https://annegretemolloka.shinyapps.io/EMTA_compare/" target="_blank" rel="noopener noreferrer">
       <img src="{{ '/assets/images/apps/benchmarking_EMTA-1024x492.png' | relative_url }}" alt="Ettevõtete ajaloo võrdlus">
     </a>
     <h3>Ettevõtete ajaloo võrdlus</h3>
@@ -25,7 +25,7 @@ permalink: /rakendused/
   </article>
 
   <article class="app-card">
-    <a href="https://annegretepeek.shinyapps.io/paike/" target="_blank" rel="noopener noreferrer">
+    <a href="https://annegretemolloka.shinyapps.io/paike/" target="_blank" rel="noopener noreferrer">
       <img src="{{ '/assets/images/apps/paike.png' | relative_url }}" alt="Päikse kalkulaator">
     </a>
     <h3>Päikse kalkulaator</h3>

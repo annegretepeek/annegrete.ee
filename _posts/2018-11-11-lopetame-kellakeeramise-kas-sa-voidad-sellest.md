@@ -16,7 +16,7 @@ Kui me loobume kella keeramisest, siis meil on kaks valikut - suveaeg või talve
 
 See lihtne kalkulaator ütleb sinu valgete tundide arvu aastas. Lihtsalt vali endale lähim linn, sisesta (kas nooltega või trüki) oma ärakamis- ja magamamineku aeg.
 
-<iframe src="https://annegretepeek.shinyapps.io/paike/" width="800" height="780" frameborder="0"></iframe>
+<iframe src="https://annegretemolloka.shinyapps.io/paike/" width="800" height="780" frameborder="0"></iframe>
 
 Ma elan Tartus, ärkan kell 8, lähen magama südaöösel, seega mina võidan suveajale jäädes 38 tundi valget aega. Ja kaotan päris palju kui talveajale jääme.
 

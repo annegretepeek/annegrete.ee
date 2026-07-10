@@ -32,4 +32,4 @@ Võrdlema saab siit.*
 
 Kui need andmed väljastatakse neljandat korda, siis on plaanis teha ka teine rakendus. Jääge ootele!
 
-**See rakendus kustutati 2026.juulis. Sama info on kättesaadav ["Ettevõtete ajaloo võrdlus"](https://annegretepeek.shinyapps.io/EMTA_compare/) rakenduses.*
+**See rakendus kustutati 2026.juulis. Sama info on kättesaadav ["Ettevõtete ajaloo võrdlus"](https://annegretemolloka.shinyapps.io/EMTA_compare/) rakenduses.*
