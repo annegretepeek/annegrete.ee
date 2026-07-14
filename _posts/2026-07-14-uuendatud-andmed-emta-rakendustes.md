@@ -1,4 +1,4 @@
----
+--
 layout: post
 title: "Uuendatud andmed EMTA rakendustes"
 date: 2026-07-14
