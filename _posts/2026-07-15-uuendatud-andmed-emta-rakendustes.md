@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Uuendatud andmed EMTA rakendustes"
-date: 2026-07-14
+date: 2026-07-15
 categories:
   - "eesti-keeles"
 tags:
@@ -25,23 +25,23 @@ Teiseks valmis **Ettevõtete ajaloo võrdlus**, kus saab võrrelda mitme ettevõ
 
 Kolmas rakendus on **Mina vs sarnased** (MISA). Seal saab valida ühe ettevõtte ning leida talle sarnased ettevõtted. Sarnaste ettevõtete kohta kuvatakse valitud näitajate keskmised. Kui eesmärk on vaadata iga ettevõtte individuaalset aegrida, tuleb kasutada eelmist rakendust. Sarnasust saab määrata tegevusvaldkonna, käibe, töötajate arvu ja maakonna järgi. Lisaks tuleb valida aasta, mille põhjal sarnaseid ettevõtteid otsitakse. Andmeid kuvatakse alates valitud võrdlusaastast. Rakenduse tutvustus on [siin](https://annegrete.ee/blog/2021/01/rakendus-mina-vs-sarnased-ettevotted/) ning rakendus ise on [siin](https://annegretemolloka.shinyapps.io/MISA/).
 
-Kuna **Ettevõtete ajaloo võrdlus** sisaldab kogu esimese rakenduse funktsionaalsust, siis rakenduste ümberkolimisel (oma serverist ShinyApps.io-sse) ma esimest rakendust enam üle ei toonud.
+Kuna Ettevõtete ajaloo võrdlus sisaldab kogu esimese rakenduse funktsionaalsust, siis rakenduste ümberkolimisel (oma serverist ShinyApps.io-sse) ma esimest rakendust enam üle ei toonud.
 
 Kõik rakendused on koondatud aadressile [https://annegrete.ee/rakendused/](https://annegrete.ee/rakendused/).
 
 ## Andmete uuendamine
 
-Ma polnud neid andmeid väga ammu uuendanud. Vahepeal oli EMTA muutnud nii andmete asukohta ([link](https://www.emta.ee/eraklient/amet-uudised-ja-kontakt/uudised-pressiinfo-statistika/statistika-ja-avaandmed#tasutud-maksud)) kui ka formaati. 
+Ma polnud neid andmeid väga ammu uuendanud. Vahepeal oli EMTA muutnud nii andmete [asukohta](https://www.emta.ee/eraklient/amet-uudised-ja-kontakt/uudised-pressiinfo-statistika/statistika-ja-avaandmed#tasutud-maksud) kui ka formaati. 
 
 Varem oli iga kvartali kohta eraldi fail. Nüüd on 2022–2024. aasta andmed failis *tasutud_maksud_varasemad_aastad.csv* ning 2025–2026. aasta andmed failis *tasutud_maksud_kaesolev_aasta.csv*. Muutunud on ka failide ülesehitus: kui varem vastas üks rida ühe ettevõtte ühele kvartalile, siis nüüd sisaldab üks rida ühe ettevõtte kõiki nelja kvartalit. Lisaks ei ole enam võimalik EMTA lehelt alla laadida 2022. aastast vanemaid andmeid. Õnneks olin varasemad failid juba aastaid tagasi salvestanud ning seetõttu ulatuvad minu aegread tagasi 2017. aasta algusesse.
 
-Nüüd on mul olemas skirpt, mida saab käivitada iga kord, kui EMTA avaldab uued andmed. Nii pikeneb aegrida automaatselt ühe kvartali võrra, eeldusel et EMTA ei muuda failide asukohta ega formaati.
+Nüüd on mul olemas uus skirpt, mida saab käivitada iga kord, kui EMTA avaldab uued andmed. Nii pikeneb aegrida automaatselt ühe kvartali võrra, eeldusel et EMTA ei muuda failide asukohta ega formaati.
 
 Automaatseks uuendamiseks seadistasin GitHub Actioni, mis laadib iga aasta **11. jaanuaril, aprillil, juulil ja oktoobril** EMTA lehelt uued andmed, töötleb need ning salvestab rakenduste jaoks sobivasse formaati. Lisaks on mõlema alles jäänud rakenduse repos eraldi GitHub Action, mis saadab uuendatud andmed ShinyApps.io-sse ja taaskäivitab rakenduse.
 
-Juuli oli esimene kord, kui kogu see protsess ajastatult käivitus. Nagu esimesel korral ikka, ei läinud kõik päris plaanipäraselt – puudu oli ühe R-paketi sõltuvus ning vahepeal olin muutnud oma ShinyApps.io kasutajakontot. Loodetavasti kulgeb järgmine uuendus juba täiesti automaatselt.
+Juuli oli esimene kord, kui kogu see protsess ajastatult käivitus. Nagu esimesel korral ikka, ei läinud kõik päris plaanipäraselt – puudu oli ühe R-paketi sõltuvus ning vahepeal olin muutnud oma ShinyApps.io kasutajakontot. Loodetavasti tõi esimene uuendus välja kõik probleemid ning järgmine kvartal kulgeb protsess juba täiesti automaatselt.
 
-Nüüdseks on rakendused jälle ajakohased ning loodetavasti jäävadki seda olema. Pöidlad pihku!
+Igatahes on rakendused jälle ajakohased ning loodetavasti jäävadki seda olema. Pöidlad pihku!
 
 ### Tehnilised märkused
 
@@ -61,6 +61,6 @@ Kui soovid leida oma ettevõttele sarnaseid ettevõtteid, tasub proovida [MISA r
 GitHubi lähtekood:
 
 * Esimene rakendus (enam kasutusel ei ole): [https://github.com/annegretepeek/company_compare_EMTA](https://github.com/annegretepeek/company_compare_EMTA)
-* **Ettevõtete ajaloo võrdlus**: [https://github.com/annegretepeek/benchmarking_EMTA](https://github.com/annegretepeek/benchmarking_EMTA)
-* **MISA**: [https://github.com/annegretepeek/MISA](https://github.com/annegretepeek/MISA)
+* Ettevõtete ajaloo võrdlus: [https://github.com/annegretepeek/benchmarking_EMTA](https://github.com/annegretepeek/benchmarking_EMTA)
+* MISA: [https://github.com/annegretepeek/MISA](https://github.com/annegretepeek/MISA)
 
