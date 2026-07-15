@@ -60,7 +60,7 @@ Kui soovid leida oma ettevõttele sarnaseid ettevõtteid, tasub proovida [MISA r
 
 GitHubi lähtekood:
 
-* Esimene rakendus (enam kasutusel ei ole): [https://github.com/annegretepeek/company_compare_EMTA](https://github.com/annegretepeek/company_compare_EMTA)
-* Ettevõtete ajaloo võrdlus: [https://github.com/annegretepeek/benchmarking_EMTA](https://github.com/annegretepeek/benchmarking_EMTA)
-* MISA: [https://github.com/annegretepeek/MISA](https://github.com/annegretepeek/MISA)
+* [Esimene rakendus](https://github.com/annegretepeek/company_compare_EMTA) (enam kasutusel ei ole)
+* [Ettevõtete ajaloo võrdlus:](https://github.com/annegretepeek/benchmarking_EMTA)
+* [MISA](https://github.com/annegretepeek/MISA)
 
